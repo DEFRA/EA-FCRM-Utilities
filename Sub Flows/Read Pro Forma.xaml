@@ -1,0 +1,285 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Read_Pro_Forma" this:Read_Pro_Forma.IN_strProFormaPath="C:\Users\Jsavory\Documents\GitHub\EA-Utilities\Documents\Attachments\Service Search Pro-Forma1ed1.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IN_strProFormaPath" Type="InArgument(x:String)" />
+    <x:Property Name="OUT_dictProFormaData" Type="OutArgument(scg:Dictionary(x:String, ui:GenericValue))" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>2654,2566</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Read_Pro_Forma_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>Newtonsoft.Json.Converters</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Read fields" sap:VirtualizedContainerService.HintSize="568,2501" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="s:String[]" Name="arrStrMatches" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Init Output" sap:VirtualizedContainerService.HintSize="526,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[OUT_dictProFormaData]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[new Dictionary(of string, GenericValue)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="526,1547" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[IN_strProFormaPath]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Get cell values" sap:VirtualizedContainerService.HintSize="376,1438" sap2010:WorkflowViewState.IdRef="Sequence_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelReadCell Cell="F12" DisplayName="Read Cell - Requestor's Name" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Name")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="F14" DisplayName="Read Cell - Requestor's Email" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Email")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="F16" DisplayName="Read Cell - Requestor's Region" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Region")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="G18" DisplayName="Read Cell - Request Date" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Request Date")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="G22" DisplayName="Read Cell - Proposed Start Date" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_5" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed Start Date")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="G24" DisplayName="Read Cell - Proposed End Date" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_6" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed End Date")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="E31" DisplayName="Read Cell - Gas" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_7" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Gas")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="E33" DisplayName="Read Cell - Water" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_8" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Water")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="K31" DisplayName="Read Cell - Electric" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_9" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Electric")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="F37" DisplayName="Read Cell - Description" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_10" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Description")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="F46" DisplayName="Read Cell - Location Format" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_11" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Location Format")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="F49" DisplayName="Read Cell - Locations" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_12" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="F59" DisplayName="Read Cell - Return Email 1" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_13" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 1")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="F62" DisplayName="Read Cell - Return Email 2" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_14" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 2")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExcelApplicationScope>
+    <Switch x:TypeArguments="x:String" DisplayName="Reformat Locations" Expression="[OUT_dictProFormaData(&quot;Location Format&quot;).ToString]" sap:VirtualizedContainerService.HintSize="526,182" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="304,246" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="s:String[]">[arrStrMatches]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="s:String[]">[Regex.Matches(OUT_dictProFormaData("Locations"), "[a-zA-Z]{2}\d{12}").Cast(of Match).Select(function(m) m.Value).ToArray()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Store Grid References" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="ui:GenericValue">[string.join(";", arrStrMatches)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="Postcode" DisplayName="Postcodes" sap:VirtualizedContainerService.HintSize="304,246" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign.To>
+            <OutArgument x:TypeArguments="s:String[]">[arrStrMatches]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="s:String[]">[Regex.Matches(OUT_dictProFormaData("Locations"), "([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})").Cast(of Match).Select(function(m) m.Value).ToArray()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Store Postcodes" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign.To>
+            <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="ui:GenericValue">[string.join(";", arrStrMatches)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+      <Sequence x:Key="Northing Easting" DisplayName="Northing Easting" sap:VirtualizedContainerService.HintSize="304,246" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign.To>
+            <OutArgument x:TypeArguments="s:String[]">[arrStrMatches]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="s:String[]">[Regex.Matches(OUT_dictProFormaData("Locations"), "\d{12}").Cast(of Match).Select(function(m) m.Value).ToArray()]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign DisplayName="Store Northings and Eastings" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign.To>
+            <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="ui:GenericValue">[string.join(";", arrStrMatches)]</InArgument>
+          </Assign.Value>
+        </Assign>
+      </Sequence>
+    </Switch>
+    <Sequence DisplayName="Validate" sap:VirtualizedContainerService.HintSize="526,500" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
+        <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign DisplayName="Store Start Date" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:DateTime">[dateStartDate]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(OUT_dictProFormaData("Proposed Start Date"), "MM/dd/yyyy", new system.Globalization.CultureInfo("En"))]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign DisplayName="Store End Date" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:DateTime">[dateEndDate]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(OUT_dictProFormaData("Proposed End Date"), "MM/dd/yyyy", new system.Globalization.CultureInfo("En"))]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <If Condition="[dateEndDate &lt;= Today OR dateStartDate &lt;= Today]" DisplayName="If Dates are incorrect" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Throw DisplayName="Throw BRE" Exception="[new BusinessRuleException(&quot;Start date or end date are not in the future.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        </If.Then>
+      </If>
+    </Sequence>
+  </Sequence>
+</Activity>
