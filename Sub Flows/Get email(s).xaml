@@ -6,7 +6,7 @@
     <x:Property Name="IN_strAttachmentDirectory" Type="InArgument(x:String)" />
     <x:Property Name="OUT_mailCurrentEmail" Type="OutArgument(snm:MailMessage)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>2654,1727</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2234,1727</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -90,7 +90,7 @@
     </ui:GetOutlookMailMessages>
     <If Condition="[listMessage.Count = 0]" DisplayName="If no mail" sap:VirtualizedContainerService.HintSize="647,208" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Throw DisplayName="Throw mail error" Exception="[new BusinessRuleException(&quot;No mail&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+        <Throw DisplayName="Throw mail error" Exception="[new Exception(&quot;No mail&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
       </If.Then>
     </If>
     <ui:MoveOutlookMessage Account="[IN_strEmailAccount]" DisplayName="Move oldest mail" sap:VirtualizedContainerService.HintSize="647,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_4" MailFolder="[IN_strInProgressFolder]" MailMessage="[listMessage(0)]" />
@@ -117,7 +117,7 @@
         <InArgument x:TypeArguments="x:String">[listMessage.Last.Body]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" FolderPath="[IN_strAttachmentDirectory]" sap:VirtualizedContainerService.HintSize="647,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[OUT_mailCurrentEmail]" OverwriteExisting="False" />
+    <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" Filter=".*\.xls*" FolderPath="[IN_strAttachmentDirectory]" sap:VirtualizedContainerService.HintSize="647,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[OUT_mailCurrentEmail]" OverwriteExisting="False" />
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="647,496" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(IN_strAttachmentDirectory)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
@@ -140,7 +140,7 @@
                     <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:Continue sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -159,7 +159,7 @@
     </ui:ForEach>
     <If Condition="[booExcelFileAttached = False]" DisplayName="If no excel file found" sap:VirtualizedContainerService.HintSize="647,208" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Throw DisplayName="Throw BRE" Exception="[new BusinessRuleException(&quot;No excel attachment found&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+        <Throw DisplayName="Throw FormatException" Exception="[new FormatException(&quot;No excel attachment found&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
       </If.Then>
     </If>
   </Sequence>
