@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2234,2184</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1185,2184</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -105,7 +105,7 @@
           <av:PointCollection x:Key="ConnectorLocation">300,193.5 300,233.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Parse lookup file" sap:VirtualizedContainerService.HintSize="526,671" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence DisplayName="Parse lookup file" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Name="dtaAreaData" />
           <Variable x:TypeArguments="x:String" Name="strJSON" />
@@ -147,12 +147,8 @@
           <If.Then>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Pausepoint" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Pausepoint.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">
-                  <Literal x:TypeArguments="x:String">Pausepoint 1</Literal>
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;&lt;h1&gt;Please check the below:&lt;/h1&gt;&lt;br&gt;&lt;br&gt;The oldest available email as been moved to the &quot; &amp; IN_dictConfig(&quot;Email In Progress Folder&quot;).ToString &amp; &quot; folder,&lt;br&gt;The email being processed is in the correct format (with a valid pro forma attached - as an .xls* file); if it is not a valid pro forma, please check that an email to the requestor has been issued asking for it to be re-submitted.&lt;br&gt;Requested dates valid: &quot; &amp; IN_dictProFormaData(&quot;Original Dates Valid&quot;).ToString &amp; &quot;&lt;br&gt;Start Date: &quot; &amp; IN_dictProFormaData(&quot;Proposed Start Date&quot;).ToString &amp; &quot;&lt;br&gt;End Date: &quot; &amp; IN_dictProFormaData(&quot;Proposed End Date&quot;).ToString &amp; &quot;&lt;br&gt;The following services will be checked : &lt;br&gt;&quot; &amp; string.Join(&quot;&lt;br&gt;&quot;,IN_dictProFormaData(&quot;Requested Services&quot;).split(&quot;,&quot;c))" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">Pausepoint 1</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">["&lt;h1&gt;Please check the below:&lt;/h1&gt;&lt;br&gt;&lt;br&gt;The oldest available email as been moved to the " &amp; IN_dictConfig("Email In Progress Folder").ToString &amp; " folder,&lt;br&gt;The email being processed is in the correct format (with a valid pro forma attached - as an .xls* file); if it is not a valid pro forma, please check that an email to the requestor has been issued asking for it to be re-submitted.&lt;br&gt;Requested dates valid: " &amp; IN_dictProFormaData("Original Dates Valid").ToString &amp; "&lt;br&gt;Start Date: " &amp; IN_dictProFormaData("Proposed Start Date").ToString &amp; "&lt;br&gt;End Date: " &amp; IN_dictProFormaData("Proposed End Date").ToString &amp; "&lt;br&gt;The following services will be checked : &lt;br&gt;" &amp; string.Join("&lt;br&gt;",IN_dictProFormaData("Requested Services").split(","c))]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -171,7 +167,7 @@
               <av:Size x:Key="ShapeSize">200,51</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="406,380" sap2010:WorkflowViewState.IdRef="ForEach`1_11" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
@@ -185,7 +181,10 @@
                       </ActivityAction.Argument>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Search" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Conduct Search.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="njl:JToken" x:Key="IN_jobProvider">[provider]</InArgument>
+                          <InArgument x:TypeArguments="njl:JToken" x:Key="IN_jobProvider">
+                            <mva:VisualBasicValue x:TypeArguments="njl:JToken" ExpressionText="provider" />
+                          </InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig" />
                         </ui:InvokeWorkflowFile.Arguments>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
