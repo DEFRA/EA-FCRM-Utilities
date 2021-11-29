@@ -5,6 +5,7 @@
   "dependencies": {
     "Microsoft.Activities": "[1.0.1]",
     "Reusable.Components": "[1.0.11]",
+    "UiPath.Credentials.Activities": "[2.0.0]",
     "UiPath.Database.Activities": "[1.4.0]",
     "UiPath.Excel.Activities": "[2.8.6]",
     "UiPath.Form.Activities": "[1.3.0]",
