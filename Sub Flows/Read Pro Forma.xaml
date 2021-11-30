@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2234,4633</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1396.66666666667,4996.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Pro_Forma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -71,7 +71,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read fields" sap:VirtualizedContainerService.HintSize="832,4568" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Read fields" sap:VirtualizedContainerService.HintSize="834,4932" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arrStrMatches" />
     </Sequence.Variables>
@@ -80,7 +80,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Init Output" sap:VirtualizedContainerService.HintSize="790,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Init Output" sap:VirtualizedContainerService.HintSize="792,62" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[OUT_dictProFormaData]</OutArgument>
       </Assign.To>
@@ -88,19 +88,19 @@
         <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[new Dictionary(of string, GenericValue)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="790,3322" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[IN_strProFormaPath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="792,3356" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="C:\Users\M1006990\Desktop\Copy of Service Search Pro-Forma.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Get cell values" sap:VirtualizedContainerService.HintSize="756,3213" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Get cell values" sap:VirtualizedContainerService.HintSize="758,3247.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Init Services Requested" sap:VirtualizedContainerService.HintSize="714,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+            <Assign DisplayName="Init Services Requested" sap:VirtualizedContainerService.HintSize="716,62" sap2010:WorkflowViewState.IdRef="Assign_34">
               <Assign.To>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
               </Assign.To>
@@ -108,46 +108,46 @@
                 <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ExcelReadCell Cell="F12" DisplayName="Read Cell - Requestor's Name" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F12" DisplayName="Read Cell - Requestor's Name" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Name")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="F14" DisplayName="Read Cell - Requestor's Email" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F14" DisplayName="Read Cell - Requestor's Email" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_2" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Email")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="F16" DisplayName="Read Cell - Requestor's Region" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F16" DisplayName="Read Cell - Requestor's Region" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Region")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="G18" DisplayName="Read Cell - Request Date" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="G18" DisplayName="Read Cell - Request Date" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Request Date")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="G22" DisplayName="Read Cell - Proposed Start Date" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_5" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="G22" DisplayName="Read Cell - Proposed Start Date" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_5" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed Start Date")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="G24" DisplayName="Read Cell - Proposed End Date" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_6" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="G24" DisplayName="Read Cell - Proposed End Date" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_6" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed End Date")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="E31" DisplayName="Read Cell - Gas" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_7" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="E31" DisplayName="Read Cell - Gas" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_7" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Gas")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <If Condition="[OUT_dictProFormaData(&quot;Gas&quot;) = &quot;Yes&quot;]" DisplayName="If Gas requested" sap:VirtualizedContainerService.HintSize="714,354" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[OUT_dictProFormaData(&quot;Gas&quot;) = &quot;Yes&quot;]" DisplayName="If Gas requested" sap:VirtualizedContainerService.HintSize="716,363.333333333333" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_5">
+                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="570,212.666666666667" sap2010:WorkflowViewState.IdRef="If_5">
                   <If.Then>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_18">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -157,7 +157,7 @@
                     </Assign>
                   </If.Then>
                   <If.Else>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_19">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -169,16 +169,16 @@
                 </If>
               </If.Then>
             </If>
-            <ui:ExcelReadCell Cell="E33" DisplayName="Read Cell - Water" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_8" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="E33" DisplayName="Read Cell - Water" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_8" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Water")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <If Condition="[OUT_dictProFormaData(&quot;Water&quot;) = &quot;Yes&quot;]" DisplayName="If Water requested" sap:VirtualizedContainerService.HintSize="714,354" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[OUT_dictProFormaData(&quot;Water&quot;) = &quot;Yes&quot;]" DisplayName="If Water requested" sap:VirtualizedContainerService.HintSize="716,363.333333333333" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Then>
-                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_6">
+                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="570,212.666666666667" sap2010:WorkflowViewState.IdRef="If_6">
                   <If.Then>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_20">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -188,7 +188,7 @@
                     </Assign>
                   </If.Then>
                   <If.Else>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_21">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -200,16 +200,16 @@
                 </If>
               </If.Then>
             </If>
-            <ui:ExcelReadCell Cell="K31" DisplayName="Read Cell - Electric" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_9" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="K31" DisplayName="Read Cell - Electric" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_9" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Electric")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <If Condition="[OUT_dictProFormaData(&quot;Electric&quot;) = &quot;Yes&quot;]" DisplayName="If Electric requested" sap:VirtualizedContainerService.HintSize="714,354" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[OUT_dictProFormaData(&quot;Electric&quot;) = &quot;Yes&quot;]" DisplayName="If Electric requested" sap:VirtualizedContainerService.HintSize="716,363.333333333333" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Then>
-                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_7">
+                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="570,212.666666666667" sap2010:WorkflowViewState.IdRef="If_7">
                   <If.Then>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_22">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_22">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -219,7 +219,7 @@
                     </Assign>
                   </If.Then>
                   <If.Else>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_23">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_23">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -231,16 +231,16 @@
                 </If>
               </If.Then>
             </If>
-            <ui:ExcelReadCell Cell="K33" DisplayName="Read Cell - Internet" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_15" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="K33" DisplayName="Read Cell - Internet" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_15" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Internet")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <If Condition="[OUT_dictProFormaData(&quot;Internet&quot;) = &quot;Yes&quot;]" DisplayName="If Internet requested" sap:VirtualizedContainerService.HintSize="714,354" sap2010:WorkflowViewState.IdRef="If_9">
+            <If Condition="[OUT_dictProFormaData(&quot;Internet&quot;) = &quot;Yes&quot;]" DisplayName="If Internet requested" sap:VirtualizedContainerService.HintSize="716,363.333333333333" sap2010:WorkflowViewState.IdRef="If_9">
               <If.Then>
-                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="569,207" sap2010:WorkflowViewState.IdRef="If_8">
+                <If Condition="[OUT_dictProFormaData(&quot;Requested Services&quot;).ToString.Trim &lt;&gt; &quot;&quot;]" DisplayName="If services already added" sap:VirtualizedContainerService.HintSize="570,212.666666666667" sap2010:WorkflowViewState.IdRef="If_8">
                   <If.Then>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_24">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_24">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -250,7 +250,7 @@
                     </Assign>
                   </If.Then>
                   <If.Else>
-                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_25">
+                    <Assign DisplayName="Add to requested services" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_25">
                       <Assign.To>
                         <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requested Services")]</OutArgument>
                       </Assign.To>
@@ -262,27 +262,27 @@
                 </If>
               </If.Then>
             </If>
-            <ui:ExcelReadCell Cell="F37" DisplayName="Read Cell - Description" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_10" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F37" DisplayName="Read Cell - Description" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_10" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Description")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="F46" DisplayName="Read Cell - Location Format" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_11" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F46" DisplayName="Read Cell - Location Format" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_11" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Location Format")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="F49" DisplayName="Read Cell - Locations" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_12" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F49" DisplayName="Read Cell - Locations" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_12" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="F59" DisplayName="Read Cell - Return Email 1" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_13" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F59" DisplayName="Read Cell - Return Email 1" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_13" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 1")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="F62" DisplayName="Read Cell - Return Email 2" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_14" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F62" DisplayName="Read Cell - Return Email 2" sap:VirtualizedContainerService.HintSize="716,58.6666666666667" sap2010:WorkflowViewState.IdRef="ExcelReadCell_14" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 2")]</OutArgument>
               </ui:ExcelReadCell.Result>
@@ -297,22 +297,22 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <Switch x:TypeArguments="x:String" DisplayName="Reformat Locations" Expression="[OUT_dictProFormaData(&quot;Location Format&quot;).ToString]" sap:VirtualizedContainerService.HintSize="790,182" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-      <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="304,246" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Switch x:TypeArguments="x:String" DisplayName="Reformat Locations" Expression="[OUT_dictProFormaData(&quot;Location Format&quot;).ToString]" sap:VirtualizedContainerService.HintSize="792,494" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+      <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
           <Assign.To>
             <OutArgument x:TypeArguments="s:String[]">[arrStrMatches]</OutArgument>
           </Assign.To>
           <Assign.Value>
-            <InArgument x:TypeArguments="s:String[]">[Regex.Matches(OUT_dictProFormaData("Locations"), "[a-zA-Z]{2}\d{12}").Cast(of Match).Select(function(m) m.Value).ToArray()]</InArgument>
+            <InArgument x:TypeArguments="s:String[]">[Regex.Matches(OUT_dictProFormaData("Locations"), "[a-zA-Z]{2}\d{10}").Cast(of Match).Select(function(m) m.Value).ToArray()]</InArgument>
           </Assign.Value>
         </Assign>
-        <Assign DisplayName="Store Grid References" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign DisplayName="Store Grid References" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
           <Assign.To>
             <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
           </Assign.To>
@@ -321,13 +321,13 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence x:Key="Postcode" DisplayName="Postcodes" sap:VirtualizedContainerService.HintSize="304,347" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence x:Key="Postcode" DisplayName="Postcodes" sap:VirtualizedContainerService.HintSize="304,358.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
           <Assign.To>
             <OutArgument x:TypeArguments="s:String[]">[arrStrMatches]</OutArgument>
           </Assign.To>
@@ -335,8 +335,8 @@
             <InArgument x:TypeArguments="s:String[]">[Regex.Matches(OUT_dictProFormaData("Locations"), "([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})").Cast(of Match).Select(function(m) m.Value).ToArray()]</InArgument>
           </Assign.Value>
         </Assign>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[string.join(&quot;;&quot;, arrStrMatches)]" />
-        <Assign DisplayName="Store Postcodes" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[string.join(&quot;;&quot;, arrStrMatches)]" />
+        <Assign DisplayName="Store Postcodes" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
           <Assign.To>
             <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
           </Assign.To>
@@ -345,13 +345,13 @@
           </Assign.Value>
         </Assign>
       </Sequence>
-      <Sequence x:Key="Northing Easting" DisplayName="Northing Easting" sap:VirtualizedContainerService.HintSize="304,246" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <Sequence x:Key="Northing Easting" DisplayName="Northing Easting" sap:VirtualizedContainerService.HintSize="304,256" sap2010:WorkflowViewState.IdRef="Sequence_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign DisplayName="Convert to array" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_6">
           <Assign.To>
             <OutArgument x:TypeArguments="s:String[]">[arrStrMatches]</OutArgument>
           </Assign.To>
@@ -359,7 +359,7 @@
             <InArgument x:TypeArguments="s:String[]">[Regex.Matches(OUT_dictProFormaData("Locations"), "(\d{6}\s?,\s?\d{6})").Cast(of Match).Select(function(m) m.Value).ToArray()]</InArgument>
           </Assign.Value>
         </Assign>
-        <Assign DisplayName="Store Northings and Eastings" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign DisplayName="Store Northings and Eastings" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_7">
           <Assign.To>
             <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Locations")]</OutArgument>
           </Assign.To>
@@ -369,7 +369,7 @@
         </Assign>
       </Sequence>
     </Switch>
-    <Sequence DisplayName="Validate" sap:VirtualizedContainerService.HintSize="790,792" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="Validate" sap:VirtualizedContainerService.HintSize="792,808" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
         <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
@@ -379,7 +379,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="Store Start Date" sap:VirtualizedContainerService.HintSize="611,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign DisplayName="Store Start Date" sap:VirtualizedContainerService.HintSize="612,62" sap2010:WorkflowViewState.IdRef="Assign_8">
         <Assign.To>
           <OutArgument x:TypeArguments="s:DateTime">[dateStartDate]</OutArgument>
         </Assign.To>
@@ -387,7 +387,7 @@
           <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(OUT_dictProFormaData("Proposed Start Date"), "MM/dd/yyyy HH:mm:ss", new system.Globalization.CultureInfo("En"))]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Store End Date" sap:VirtualizedContainerService.HintSize="611,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign DisplayName="Store End Date" sap:VirtualizedContainerService.HintSize="612,62" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
           <OutArgument x:TypeArguments="s:DateTime">[dateEndDate]</OutArgument>
         </Assign.To>
@@ -395,15 +395,15 @@
           <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(OUT_dictProFormaData("Proposed End Date"), "MM/dd/yyyy HH:mm:ss", new system.Globalization.CultureInfo("En"))]</InArgument>
         </Assign.Value>
       </Assign>
-      <If Condition="[dateEndDate &lt;= Today OR dateStartDate &lt;= Today]" DisplayName="If Dates are incorrect" sap:VirtualizedContainerService.HintSize="611,500" sap2010:WorkflowViewState.IdRef="If_1">
+      <If Condition="[dateEndDate &lt;= Today OR dateStartDate &lt;= Today]" DisplayName="If Dates are incorrect" sap:VirtualizedContainerService.HintSize="612,512" sap2010:WorkflowViewState.IdRef="If_1">
         <If.Then>
-          <Sequence DisplayName="Set dates to default + flag" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="Set dates to default + flag" sap:VirtualizedContainerService.HintSize="304,358" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Dates invalid" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_37">
+            <Assign DisplayName="Dates invalid" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_37">
               <Assign.To>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Original Dates Valid")]</OutArgument>
               </Assign.To>
@@ -411,7 +411,7 @@
                 <InArgument x:TypeArguments="ui:GenericValue">[False]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Store Start Date" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_38">
+            <Assign DisplayName="Store Start Date" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_38">
               <Assign.To>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed Start Date")]</OutArgument>
               </Assign.To>
@@ -419,7 +419,7 @@
                 <InArgument x:TypeArguments="ui:GenericValue">[Today().ToString("dd MMMM yyyy")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Store End Date" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_39">
+            <Assign DisplayName="Store End Date" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_39">
               <Assign.To>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed End Date")]</OutArgument>
               </Assign.To>
@@ -430,7 +430,7 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Assign DisplayName="Dates valid" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_40">
+          <Assign DisplayName="Dates valid" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_40">
             <Assign.To>
               <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Original Dates Valid")]</OutArgument>
             </Assign.To>
