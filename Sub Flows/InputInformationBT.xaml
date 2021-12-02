@@ -1,9 +1,9 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="InputInformationBT" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="IN_dictProFormaData" Type="InOutArgument(scg:Dictionary(x:String, ui:GenericValue))" />
-    <x:Property Name="IN_intCounter" Type="InArgument(x:Int64)" />
+    <x:Property Name="IN_strLocationType" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1426.66666666667,1289.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>917,1189</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="17">
@@ -51,27 +51,27 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="694,1224.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="539,1057" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="652,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="497,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="346,654.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="346,645" sap2010:WorkflowViewState.IdRef="Sequence_13">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="TEST SEQUENCE" sap:VirtualizedContainerService.HintSize="304,562.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence DisplayName="TEST SEQUENCE" sap:VirtualizedContainerService.HintSize="304,553" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Init Output" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign DisplayName="Init Output" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[IN_dictProFormaData]</OutArgument>
               </Assign.To>
@@ -79,7 +79,7 @@
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[new Dictionary(of string, GenericValue)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="LocationType" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign DisplayName="LocationType" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
               <Assign.To>
                 <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictProFormaData("Location Format")]</OutArgument>
               </Assign.To>
@@ -87,7 +87,7 @@
                 <InArgument x:TypeArguments="ui:GenericValue">["Grid Reference"]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Location" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign DisplayName="Location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictProFormaData("Locations")]</OutArgument>
               </Assign.To>
@@ -95,7 +95,7 @@
                 <InArgument x:TypeArguments="ui:GenericValue">["TQ9612067132;TQ9628067118"]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign Location Counter" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign DisplayName="Assign Location Counter" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int64">[IN_IntCounter]</OutArgument>
               </Assign.To>
@@ -103,7 +103,7 @@
                 <InArgument x:TypeArguments="x:Int64">[(IN_dictProFormaData("Locations").tostring).split(";"c).Length - 1]</InArgument>
               </Assign.Value>
             </Assign>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[IN_intCounter.ToString]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[IN_intCounter.ToString]" />
           </Sequence>
         </Sequence>
       </ui:CommentOut.Body>
@@ -114,14 +114,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_dictProFormaData(&quot;Location Format&quot;).ToString]" sap:VirtualizedContainerService.HintSize="652,1040" sap2010:WorkflowViewState.IdRef="Switch`1_2">
-      <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="798,618" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="497,874" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Map Reference'" sap:VirtualizedContainerService.HintSize="756,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Map Reference'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
           <ui:Click.CursorPosition>
             <ui:CursorPosition Position="Center">
               <ui:CursorPosition.OffsetX>
@@ -143,51 +143,26 @@
             </ui:Target>
           </ui:Click.Target>
         </ui:Click>
-        <If Condition="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Contains(&quot;;&quot;)]" DisplayName="If Location contains &quot;;&quot;" sap:VirtualizedContainerService.HintSize="756,380" sap2010:WorkflowViewState.IdRef="If_1">
-          <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_5">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type in Map Reference 1" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[IN_dictProFormaData(&quot;Locations&quot;).Split(&quot;;&quot;c)(Cint(IN_intCounter))]">
-                <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06055256-7af4-44ed-94d7-c20a62eef1da" InformativeScreenshot="eeabfb2df0ba6da910f2f8c7aa2e6458" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text3' name='mapref' tag='INPUT' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:TypeInto.Target>
-              </ui:TypeInto>
-            </Sequence>
-          </If.Then>
-          <If.Else>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type In Map Reference" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="[IN_dictProFormaData(&quot;Locations&quot;).tostring]">
-              <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06055256-7af4-44ed-94d7-c20a62eef1da" InformativeScreenshot="eeabfb2df0ba6da910f2f8c7aa2e6458" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text3' name='mapref' tag='INPUT' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:TypeInto.Target>
-            </ui:TypeInto>
-          </If.Else>
-        </If>
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type In Map Reference" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_13" Text="[IN_strLocationToSearch]">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06055256-7af4-44ed-94d7-c20a62eef1da" InformativeScreenshot="eeabfb2df0ba6da910f2f8c7aa2e6458" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text3' name='mapref' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
       </Sequence>
-      <Sequence x:Key="Postcode" DisplayName="Postcode" sap:VirtualizedContainerService.HintSize="798,618" sap2010:WorkflowViewState.IdRef="Sequence_9">
+      <Sequence x:Key="Postcode" DisplayName="Postcode" sap:VirtualizedContainerService.HintSize="376,372" sap2010:WorkflowViewState.IdRef="Sequence_9">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Postcode'" sap:VirtualizedContainerService.HintSize="756,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Postcode'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
           <ui:Click.CursorPosition>
             <ui:CursorPosition Position="Center">
               <ui:CursorPosition.OffsetX>
@@ -209,45 +184,20 @@
             </ui:Target>
           </ui:Click.Target>
         </ui:Click>
-        <If Condition="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Contains(&quot;;&quot;)]" DisplayName="If Location contains &quot;;&quot;" sap:VirtualizedContainerService.HintSize="756,380" sap2010:WorkflowViewState.IdRef="If_2">
-          <If.Then>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,226" sap2010:WorkflowViewState.IdRef="Sequence_12">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type in Map Reference 1" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_14" Text="[IN_dictProFormaData(&quot;Locations&quot;).Split(&quot;;&quot;c)(Cint(IN_intCounter))]">
-                <ui:TypeInto.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06055256-7af4-44ed-94d7-c20a62eef1da" InformativeScreenshot="eeabfb2df0ba6da910f2f8c7aa2e6458" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text3' name='mapref' tag='INPUT' /&gt;">
-                    <ui:Target.TimeoutMS>
-                      <InArgument x:TypeArguments="x:Int32" />
-                    </ui:Target.TimeoutMS>
-                    <ui:Target.WaitForReady>
-                      <InArgument x:TypeArguments="ui:WaitForReady" />
-                    </ui:Target.WaitForReady>
-                  </ui:Target>
-                </ui:TypeInto.Target>
-              </ui:TypeInto>
-            </Sequence>
-          </If.Then>
-          <If.Else>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type in Postcode" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[IN_dictProFormaData(&quot;Locations&quot;).ToString]">
-              <ui:TypeInto.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e27e82ac-931a-4bf3-8dba-ab37562805a0" InformativeScreenshot="2a5d1cf006c0347f90acd0f5fc981164" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text2' tag='INPUT' /&gt;">
-                  <ui:Target.TimeoutMS>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </ui:Target.TimeoutMS>
-                  <ui:Target.WaitForReady>
-                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                  </ui:Target.WaitForReady>
-                </ui:Target>
-              </ui:TypeInto.Target>
-            </ui:TypeInto>
-          </If.Else>
-        </If>
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type in Postcode" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" Text="[IN_strLocationToSearch]">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e27e82ac-931a-4bf3-8dba-ab37562805a0" InformativeScreenshot="2a5d1cf006c0347f90acd0f5fc981164" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text2' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
       </Sequence>
-      <Sequence x:Key="Northing Easting" DisplayName="North Easting" sap:VirtualizedContainerService.HintSize="612,802" sap2010:WorkflowViewState.IdRef="Sequence_10">
+      <Sequence x:Key="Northing Easting" DisplayName="North Easting" sap:VirtualizedContainerService.HintSize="376,646" sap2010:WorkflowViewState.IdRef="Sequence_10">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="strLocations" />
         </Sequence.Variables>
@@ -256,7 +206,7 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'OS Grid'" sap:VirtualizedContainerService.HintSize="570,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'OS Grid'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
           <ui:Click.CursorPosition>
             <ui:CursorPosition Position="Center">
               <ui:CursorPosition.OffsetX>
@@ -278,29 +228,15 @@
             </ui:Target>
           </ui:Click.Target>
         </ui:Click>
-        <If Condition="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Contains(&quot;;&quot;)]" DisplayName="If Location contains &quot;;&quot;" sap:VirtualizedContainerService.HintSize="570,216" sap2010:WorkflowViewState.IdRef="If_3">
-          <If.Then>
-            <Assign DisplayName="Assign Initial Section to be split" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_4">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[strLocations]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[IN_dictProFormaData("Locations").Split(";"c)(Cint(IN_intCounter))]</InArgument>
-              </Assign.Value>
-            </Assign>
-          </If.Then>
-          <If.Else>
-            <Assign DisplayName="Assign Initial Section to be split" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_5">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[strLocations]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[IN_dictProFormaData("Locations").ToString]</InArgument>
-              </Assign.Value>
-            </Assign>
-          </If.Else>
-        </If>
-        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Easting" EmptyField="True" sap:VirtualizedContainerService.HintSize="570,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[strLocations.Split(&quot;,&quot;c)(0).Trim]">
+        <Assign DisplayName="Assign Initial Section to be split" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[strLocations]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[IN_strLocationToSearch]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Easting" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[strLocations.Split(&quot;,&quot;c)(0).Trim]">
           <ui:TypeInto.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="df4c084c-90f2-4574-9fa4-f1f2c16eff74" InformativeScreenshot="2897cd327b89542b0330cce74fd9f731" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text3' name='teasting' tag='INPUT' /&gt;">
               <ui:Target.TimeoutMS>
@@ -312,7 +248,7 @@
             </ui:Target>
           </ui:TypeInto.Target>
         </ui:TypeInto>
-        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Northing" EmptyField="True" sap:VirtualizedContainerService.HintSize="570,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" SimulateType="True" Text="[strLocations.Split(&quot;,&quot;c)(1).Trim]">
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Northing" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" SimulateType="True" Text="[strLocations.Split(&quot;,&quot;c)(1).Trim]">
           <ui:TypeInto.Target>
             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="062bf5d3-fa24-468d-a543-d4f67f668398" InformativeScreenshot="8f4e83b876b28a7fde4646e908131ca8" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='text4' tag='INPUT' /&gt;">
               <ui:Target.TimeoutMS>
