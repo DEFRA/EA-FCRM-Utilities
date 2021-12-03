@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2608,1191</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1063,831</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Conduct_Search_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="25">
@@ -88,10 +88,10 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">40,226.04</av:Point>
-              <av:Size x:Key="ShapeSize">200,68</av:Size>
+              <av:Size x:Key="ShapeSize">200,66</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Search BT" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Search BT" sap:VirtualizedContainerService.HintSize="604,2031" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="booBTOpen" />
             </Sequence.Variables>
@@ -100,10 +100,10 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke check website open" sap:VirtualizedContainerService.HintSize="562,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\CheckSiteOpen.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke check website open" sap:VirtualizedContainerService.HintSize="562,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\CheckSiteOpen.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="IN_strURL">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;BT URL&quot;)" />
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;BT URL&quot;).Replace(&quot;welcome.home&quot;, &quot;*&quot;)" />
                 </InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="IN_strProcessName">
                   <Literal x:TypeArguments="x:String">iexplore.exe</Literal>
@@ -113,19 +113,13 @@
                 </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <If Condition="[booBTOpen]" DisplayName="If already open" sap:VirtualizedContainerService.HintSize="562,263" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[booBTOpen]" DisplayName="If already open" sap:VirtualizedContainerService.HintSize="562,260" sap2010:WorkflowViewState.IdRef="If_3">
               <If.Else>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Open BT Website workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows/Open BT Website &amp; Log In.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Open BT Website workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows/Open BT Website &amp; Log In.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strBTURL">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;BT URL&quot;)" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credBTLogin">
-                      <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="IN_credBT" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">
-                      <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="IN_dictConfig(&quot;Retry Number&quot;)" />
-                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strBTURL">[IN_dictConfig("BT URL")]</InArgument>
+                    <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credBTLogin">[IN_credBT]</InArgument>
+                    <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">[IN_dictConfig("Retry Number")]</InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </If.Else>
@@ -138,7 +132,7 @@
                 <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="562,1388" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="562,1387" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
@@ -263,10 +257,10 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">370,227</av:Point>
-            <av:Size x:Key="ShapeSize">200,68</av:Size>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="541,1135" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="booLSBUDopen" />
           </Sequence.Variables>
@@ -277,30 +271,18 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke check website open" sap:VirtualizedContainerService.HintSize="499,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\CheckSiteOpen.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="IN_strURL">
-                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;LSBUD URL&quot;).Replace(&quot;Account/Login&quot;, &quot;*&quot;)" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="IN_strProcessName">
-                <Literal x:TypeArguments="x:String">iexplore.exe</Literal>
-              </InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booSiteOpen">
-                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="booLSBUDopen" />
-              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="IN_strURL">[IN_dictConfig("LSBUD URL").Replace("Account/Login", "*")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="IN_strProcessName">iexplore.exe</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booSiteOpen">[booLSBUDopen]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <If Condition="[booLSBUDopen]" DisplayName="If already open" sap:VirtualizedContainerService.HintSize="499,263" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Else>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Open LSBUD Website workflow" sap:VirtualizedContainerService.HintSize="354,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Open LSBUD Website &amp; Log In.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUDLogin">
-                    <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="IN_credLSBUD" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="IN_strLSBUDURL">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;LSBUD URL&quot;)" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">
-                    <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="IN_dictConfig(&quot;Retry Number&quot;)" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUDLogin">[IN_credLSBUD]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="IN_strLSBUDURL">[IN_dictConfig("LSBUD URL")]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">[IN_dictConfig("Retry Number")]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </If.Else>
@@ -362,10 +344,10 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,327</av:Point>
-            <av:Size x:Key="ShapeSize">200,68</av:Size>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Not Supported" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Not Supported" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
