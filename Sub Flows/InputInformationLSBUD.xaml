@@ -1,0 +1,614 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="InputInformationBT" this:InputInformationBT.IN_strEnquiryType="Planned Works" this:InputInformationBT.IN_strWorkCategory="Watercourses/Canals/Drainage" this:InputInformationBT.IN_strWorkType="Dredging" this:InputInformationBT.IN_strPaperSize="A3" this:InputInformationBT.IN_strAuthorityName="The Environment Agency" this:InputInformationBT.IN_strOnBehalfOf="Utility" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="IN_strLocationType" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strEnquiryType" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strWorkCategory" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strWorkType" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strScheme" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strPaperSize" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strPlanScale" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strAuthorityName" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strSiteContactName" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strSiteContactTel" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="in format dd/MM/yyyy" Name="IN_strJobStartDate" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="in format dd/MM/yyyy" Name="IN_strJobEndDate" Type="InArgument(x:String)" />
+    <x:Property Name="IN_strOnBehalfOf" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:InputInformationBT.IN_strSiteContactTel>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String" Value="" />
+    </InArgument>
+  </this:InputInformationBT.IN_strSiteContactTel>
+  <sap:VirtualizedContainerService.HintSize>934,1677</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="18">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="21">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="539,1612" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'New Enquiry'" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="b864b00fe3e9b55be3d1dc0e450c57b5" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='   New Enquiry ' parentid='WorkBenchPanel' tag='DIV' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+    <Sequence DisplayName="Fill out Details" sap:VirtualizedContainerService.HintSize="497,66" sap2010:WorkflowViewState.IdRef="Sequence_14">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="strAvailableScales" />
+        <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ienScales" />
+        <Variable x:TypeArguments="x:String" Name="strSetScale" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Enquiry Type" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[IN_strEnquiryType]">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="4">
+            <x:String>-- Please Select --</x:String>
+            <x:String>Planned Works</x:String>
+            <x:String>Initial Enquiry</x:String>
+            <x:String>Emergency</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="57224abc9cc2e9f8ae77e7f16144f560" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Purpose' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Work Category" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[IN_strWorkCategory]">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="16">
+            <x:String>-- Please Select --</x:String>
+            <x:String>Agricultural Works</x:String>
+            <x:String>Development Projects</x:String>
+            <x:String>Domestic Works (General public)</x:String>
+            <x:String>Excavations Non Utility</x:String>
+            <x:String>Highways</x:String>
+            <x:String>Mineral Extraction</x:String>
+            <x:String>Planning Applications</x:String>
+            <x:String>Property Conveyance</x:String>
+            <x:String>Utility Works</x:String>
+            <x:String>Watercourses/Canals/Drainage</x:String>
+            <x:String>Woodland</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="1922f6a3b2f3a30c74ed57417feb3a60" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Category' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Work Type" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="[IN_strWorkType]">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="8">
+            <x:String>-- Please Select --</x:String>
+            <x:String>Bank Works</x:String>
+            <x:String>Cranes/mobile elevated work platforms</x:String>
+            <x:String>Ditch clearance</x:String>
+            <x:String>Dredging</x:String>
+            <x:String>Field drainage</x:String>
+            <x:String>Piling</x:String>
+            <x:String>Realignment / works to alter water level</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="216adba0fe2f143f7a482b1ca78f31d1" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Activity' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Job Start Date" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[IN_strJobStartDate]">
+        <ui:SetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="843f2366ebd8c82863365b35273c9536" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:SetValue.Target>
+      </ui:SetValue>
+      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Job End Date" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[IN_strJobEndDate]">
+        <ui:SetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="b2183ac1516f58a283dfc932ac1435e0" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:SetValue.Target>
+      </ui:SetValue>
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Paper Size" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="[IN_strPaperSize]">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="4">
+            <x:String>-- Please Select --</x:String>
+            <x:String>A4</x:String>
+            <x:String>A3</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="0a1947d5f6df348a0ff62660b54f4c1c" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PlanPaperSize' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Available Scales" sap:VirtualizedContainerService.HintSize="520,106" sap2010:WorkflowViewState.IdRef="GetFullText_1">
+        <ui:GetFullText.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64cc3244-84d0-48a9-9528-9fea5ac1de7b" InformativeScreenshot="8f6cc9601e86da1b8130af62c4e081d5" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PaperPlanScale' tag='SELECT' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:GetFullText.Target>
+        <ui:GetFullText.Text>
+          <OutArgument x:TypeArguments="x:String">[strAvailableScales]</OutArgument>
+        </ui:GetFullText.Text>
+      </ui:GetFullText>
+      <ui:Matches DisplayName="Matches - digits" sap:VirtualizedContainerService.HintSize="520,59" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[strAvailableScales]" IsBuilderTabModified="False" Pattern="\d+" RegexOption="IgnoreCase, Compiled" Result="[ienScales]" />
+      <Assign sap2010:Annotation.AnnotationText="Default to the largest available scale" DisplayName="Default" sap:VirtualizedContainerService.HintSize="520,91" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[strSetScale]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[ienScales.Last.Value]</InArgument>
+        </Assign.Value>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Assign>
+      <ui:ForEach x:TypeArguments="str:Match" CurrentIndex="{x:Null}" DisplayName="For Each Scale" sap:VirtualizedContainerService.HintSize="520,527" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ienScales]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="str:Match">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="str:Match" Name="scale" />
+            </ActivityAction.Argument>
+            <If sap2010:Annotation.AnnotationText="If the mod value of the available scale / desired scale is not the " Condition="[CInt(scale.Value) mod CInt(IN_strPlanScale) &lt;&gt; CInt(scale.Value)]" DisplayName="If appropriate" sap:VirtualizedContainerService.HintSize="484,393" sap2010:WorkflowViewState.IdRef="If_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence DisplayName="Store current scale and break" sap:VirtualizedContainerService.HintSize="304,214" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Use this scale" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[strSetScale]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[scale.Value]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:Break sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                </Sequence>
+              </If.Then>
+            </If>
+          </ActivityAction>
+        </ui:ForEach.Body>
+      </ui:ForEach>
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Plan Scale" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_5" Item="[strSetScale]">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="8">
+            <x:String>-- Please Select --</x:String>
+            <x:String>250</x:String>
+            <x:String>500</x:String>
+            <x:String>1250</x:String>
+            <x:String>2500</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="2e936f30646bc5653316160796773218" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PaperPlanScale' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select On Behalf Of" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="[IN_strOnBehalfOf]">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="8">
+            <x:String>-- Please Select --</x:String>
+            <x:String>Local/Highway Authority</x:String>
+            <x:String>Other</x:String>
+            <x:String>Private</x:String>
+            <x:String>Utility</x:String>
+            <x:String>National Highways</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="79a7ae8f8ff48ff494d0af0f641d08bf" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.WorkingOnBehalfOf' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Name of Authority" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_7" Item="[IN_strAuthorityName]">
+        <ui:SelectItem.Items>
+          <scg:List x:TypeArguments="x:String" Capacity="50">
+            <x:String>-- Please Select --</x:String>
+            <x:String>51 Degrees</x:String>
+            <x:String>AboveNet Communications UK</x:String>
+            <x:String>Affinity Systems LTD</x:String>
+            <x:String>Affinity Water</x:String>
+            <x:String>Albion Water</x:String>
+            <x:String>Anglian Water</x:String>
+            <x:String>AT&amp;T</x:String>
+            <x:String>Atlas Communications NI</x:String>
+            <x:String>Barnsley Cable Communications</x:String>
+            <x:String>Birmingham Cable</x:String>
+            <x:String>Bournemouth and West Hampshire Water</x:String>
+            <x:String>Bradford Cable Communications</x:String>
+            <x:String>Bristol Water</x:String>
+            <x:String>British Gas Pipelines</x:String>
+            <x:String>Broadnet UK</x:String>
+            <x:String>brsk</x:String>
+            <x:String>BskyB Telecommunications</x:String>
+            <x:String>BT</x:String>
+            <x:String>Cable &amp; Wireless UK</x:String>
+            <x:String>Cadent</x:String>
+            <x:String>Cambridge Water</x:String>
+            <x:String>Central North Sea Fibre Telecommunications</x:String>
+            <x:String>Cholderton and District Water</x:String>
+            <x:String>CityFibre</x:String>
+            <x:String>CityLink Telecommunications</x:String>
+            <x:String>COLT Telecommunications</x:String>
+            <x:String>Community Fibre</x:String>
+            <x:String>Croydon Tramlink</x:String>
+            <x:String>CSP Fibre</x:String>
+            <x:String>Docklands Light Railway</x:String>
+            <x:String>Doncaster Cable Communications</x:String>
+            <x:String>EAU (Scotland) Ltd</x:String>
+            <x:String>ECG (Distribution)</x:String>
+            <x:String>EDF Energy</x:String>
+            <x:String>Eircom UK</x:String>
+            <x:String>Eirgrid</x:String>
+            <x:String>Electricity North West</x:String>
+            <x:String>Energetics Electricity</x:String>
+            <x:String>Energetics Gas</x:String>
+            <x:String>Engie</x:String>
+            <x:String>Eon</x:String>
+            <x:String>Equant UK</x:String>
+            <x:String>ES Pipelines</x:String>
+            <x:String>ESB Energy</x:String>
+            <x:String>ESP Connections</x:String>
+            <x:String>ESP Electricity</x:String>
+            <x:String>ESP Networks</x:String>
+            <x:String>ESP Pipelines</x:String>
+            <x:String>Essex &amp; Suffolk Water</x:String>
+          </scg:List>
+        </ui:SelectItem.Items>
+        <ui:SelectItem.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="7cadb6badb8a90448232315540a91729" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.WorkingOnBehalfOfAuthority' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+          </ui:Target>
+        </ui:SelectItem.Target>
+      </ui:SelectItem>
+      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Contact Name" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[IN_strSiteContactName]">
+        <ui:SetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="602b12f56813341a37984f16957e5f25" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PrincipalContactName' tag='INPUT' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:SetValue.Target>
+      </ui:SetValue>
+      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Contact Tel" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_4" Text="[IN_strSiteContactTel]">
+        <ui:SetValue.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="9ab5e48c88976f1842c1936481db0dc6" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PrincipalContactMobile' tag='INPUT' /&gt;">
+            <ui:Target.TimeoutMS>
+              <InArgument x:TypeArguments="x:Int32" />
+            </ui:Target.TimeoutMS>
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:SetValue.Target>
+      </ui:SetValue>
+    </Sequence>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="34e01ef42c370eed19386900bf8c7fec" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='EnquiryDetailsPanel' tag='BUTTON' aaname='&amp;gt;Next' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="497,976" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="401,574" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Coordinate" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_8" Item="Coordinate">
+          <ui:SelectItem.Items>
+            <scg:List x:TypeArguments="x:String" Capacity="4">
+              <x:String>Coordinate</x:String>
+              <x:String>Postcode/Town</x:String>
+              <x:String>Road Name</x:String>
+            </scg:List>
+          </ui:SelectItem.Items>
+          <ui:SelectItem.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:SelectItem.Target>
+        </ui:SelectItem>
+        <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Alphanumeric" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_9" Item="Alphanumeric">
+          <ui:SelectItem.Items>
+            <scg:List x:TypeArguments="x:String" Capacity="4">
+              <x:String>Easting/Northing (Great Britain)</x:String>
+              <x:String>Alphanumeric</x:String>
+              <x:String>Latitude/Longitude</x:String>
+            </scg:List>
+          </ui:SelectItem.Items>
+          <ui:SelectItem.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="3d9dca2c4421c627848b0e7f387192c1" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SubSearchType' tag='SELECT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:SelectItem.Target>
+        </ui:SelectItem>
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type In Grid Reference" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_13" SimulateType="True" Text="[IN_strLocationToSearch]">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06055256-7af4-44ed-94d7-c20a62eef1da" InformativeScreenshot="cfe2960dd5ef3d3f8174e5ceb1d6dc53" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.MapReference' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+      </Sequence>
+      <Sequence x:Key="Postcode" DisplayName="Postcode" sap:VirtualizedContainerService.HintSize="401,400" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Postcode" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_10" Item="Postcode/Town">
+          <ui:SelectItem.Items>
+            <scg:List x:TypeArguments="x:String" Capacity="4">
+              <x:String>Coordinate</x:String>
+              <x:String>Postcode/Town</x:String>
+              <x:String>Road Name</x:String>
+            </scg:List>
+          </ui:SelectItem.Items>
+          <ui:SelectItem.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:SelectItem.Target>
+        </ui:SelectItem>
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Postcode" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" SimulateType="True" Text="[IN_strLocationToSearch]">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e27e82ac-931a-4bf3-8dba-ab37562805a0" InformativeScreenshot="e35da4dc333f6a9ba8902f67116ad8b8" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.Postcode' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+      </Sequence>
+      <Sequence x:Key="Northing Easting" DisplayName="North Easting" sap:VirtualizedContainerService.HintSize="401,748" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Coordinate" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_11" Item="Coordinate">
+          <ui:SelectItem.Items>
+            <scg:List x:TypeArguments="x:String" Capacity="4">
+              <x:String>Coordinate</x:String>
+              <x:String>Postcode/Town</x:String>
+              <x:String>Road Name</x:String>
+            </scg:List>
+          </ui:SelectItem.Items>
+          <ui:SelectItem.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:SelectItem.Target>
+        </ui:SelectItem>
+        <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Alphanumeric" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_12" Item="Easting/Northing (Great Britain)">
+          <ui:SelectItem.Items>
+            <scg:List x:TypeArguments="x:String" Capacity="4">
+              <x:String>Easting/Northing (Great Britain)</x:String>
+              <x:String>Alphanumeric</x:String>
+              <x:String>Latitude/Longitude</x:String>
+            </scg:List>
+          </ui:SelectItem.Items>
+          <ui:SelectItem.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="3d9dca2c4421c627848b0e7f387192c1" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SubSearchType' tag='SELECT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:SelectItem.Target>
+        </ui:SelectItem>
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Easting" EmptyField="True" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[IN_strLocationToSearch.Split(&quot;,&quot;c)(0).Trim]">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="df4c084c-90f2-4574-9fa4-f1f2c16eff74" InformativeScreenshot="7904f0971060a6387ca2920721738ecf" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='Coordinates.East' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+        <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Northing" EmptyField="True" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" SimulateType="True" Text="[IN_strLocationToSearch.Split(&quot;,&quot;c)(1).Trim]">
+          <ui:TypeInto.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="062bf5d3-fa24-468d-a543-d4f67f668398" InformativeScreenshot="4ab67f10e053632b5e244353e14c2efa" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='Coordinates.North' tag='INPUT' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:TypeInto.Target>
+        </ui:TypeInto>
+      </Sequence>
+    </Switch>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="34e01ef42c370eed19386900bf8c7fec" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='EnquiryDetailsPanel' tag='BUTTON' aaname='&amp;gt;Next' /&gt;">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+  </Sequence>
+</Activity>
