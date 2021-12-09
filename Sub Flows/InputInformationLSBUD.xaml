@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InputInformationBT" this:InputInformationBT.IN_strEnquiryType="Planned Works" this:InputInformationBT.IN_strWorkCategory="Watercourses/Canals/Drainage" this:InputInformationBT.IN_strWorkType="Dredging" this:InputInformationBT.IN_strPaperSize="A3" this:InputInformationBT.IN_strAuthorityName="The Environment Agency" this:InputInformationBT.IN_strOnBehalfOf="Utility" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InputInformationBT" this:InputInformationBT.IN_strEnquiryType="Planned Works" this:InputInformationBT.IN_strWorkCategory="Watercourses/Canals/Drainage" this:InputInformationBT.IN_strWorkType="Dredging" this:InputInformationBT.IN_strPaperSize="A3" this:InputInformationBT.IN_strAuthorityName="The Environment Agency" this:InputInformationBT.IN_strOnBehalfOf="Utility" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:stt="clr-namespace:System.Threading.Tasks;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uca="clr-namespace:UiPath.Callout.Activity;assembly=UiPath.Callout.Activity" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_strLocationType" Type="InArgument(x:String)" />
     <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
@@ -20,10 +20,10 @@
       <Literal x:TypeArguments="x:String" Value="" />
     </InArgument>
   </this:InputInformationBT.IN_strSiteContactTel>
-  <sap:VirtualizedContainerService.HintSize>934,1677</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>891,4985</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="18">
+    <scg:List x:TypeArguments="x:String" Capacity="36">
       <x:String>System.Activities</x:String>
       <x:String>System.Collections.Generic</x:String>
       <x:String>System</x:String>
@@ -42,6 +42,7 @@
       <x:String>Microsoft.VisualBasic</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -69,13 +70,13 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="539,1612" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="604,4920" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'New Enquiry'" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'New Enquiry'" sap:VirtualizedContainerService.HintSize="562,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -97,7 +98,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Sequence DisplayName="Fill out Details" sap:VirtualizedContainerService.HintSize="497,66" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence DisplayName="Fill out Details" sap:VirtualizedContainerService.HintSize="562,3502" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="strAvailableScales" />
         <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ienScales" />
@@ -105,7 +106,7 @@
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -151,42 +152,180 @@
           </ui:Target>
         </ui:SelectItem.Target>
       </ui:SelectItem>
-      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Work Type" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="[IN_strWorkType]">
-        <ui:SelectItem.Items>
-          <scg:List x:TypeArguments="x:String" Capacity="8">
-            <x:String>-- Please Select --</x:String>
-            <x:String>Bank Works</x:String>
-            <x:String>Cranes/mobile elevated work platforms</x:String>
-            <x:String>Ditch clearance</x:String>
-            <x:String>Dredging</x:String>
-            <x:String>Field drainage</x:String>
-            <x:String>Piling</x:String>
-            <x:String>Realignment / works to alter water level</x:String>
-          </scg:List>
-        </ui:SelectItem.Items>
-        <ui:SelectItem.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="216adba0fe2f143f7a482b1ca78f31d1" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Activity' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+      <ui:CalloutScope DisplayName="Callout 'SELECT  NewEnquiry.Acti...'" sap:VirtualizedContainerService.HintSize="520,227" sap2010:WorkflowViewState.IdRef="CalloutScope_1">
+        <ui:CalloutScope.CalloutForm>
+          <ActivityFunc x:TypeArguments="sd:Rectangle, s:IntPtr, stt:Task" Argument1="{x:Reference __ReferenceID0}" Argument2="{x:Reference __ReferenceID1}">
+            <uca:CallOutActivity CalloutFieldsInputData="{x:Null}" CalloutFieldsOutputData="{x:Null}" Dismissed="{x:Null}" Result="{x:Null}" SelectedButton="{x:Null}" TimeoutInSeconds="{x:Null}" BackgroundColor="#FFFFFFFF" CalloutSchema="%[{&quot;tag&quot;:&quot;h3&quot;,&quot;refreshOnChange&quot;:true,&quot;content&quot;:&quot;Please select work type&quot;,&quot;key&quot;:&quot;title&quot;,&quot;label&quot;:&quot;HTML&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;mask&quot;:false,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;reorder&quot;:false,&quot;labelWidth&quot;:30,&quot;labelMargin&quot;:3,&quot;clearOnRefresh&quot;:false},{&quot;refreshOnChange&quot;:true,&quot;content&quot;:&quot;Request has described the work as &lt;br&gt;&lt;br&gt;&lt;b&gt;{{data.description}}&lt;/b&gt;&quot;,&quot;key&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;tableView&quot;:false,&quot;label&quot;:&quot;Label&quot;,&quot;type&quot;:&quot;label&quot;},{&quot;label&quot;:&quot;HTML&quot;,&quot;tag&quot;:&quot;br&quot;,&quot;attrs&quot;:[{&quot;attr&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;}],&quot;refreshOnChange&quot;:true,&quot;mask&quot;:false,&quot;tableView&quot;:true,&quot;alwaysEnabled&quot;:false,&quot;type&quot;:&quot;label&quot;,&quot;input&quot;:false,&quot;key&quot;:&quot;wellcontent&quot;,&quot;reorder&quot;:false,&quot;labelWidth&quot;:30,&quot;labelMargin&quot;:3,&quot;clearOnRefresh&quot;:false},{&quot;label&quot;:&quot;Done&quot;,&quot;theme&quot;:&quot;success&quot;,&quot;size&quot;:&quot;lg&quot;,&quot;block&quot;:true,&quot;tableView&quot;:false,&quot;key&quot;:&quot;done&quot;,&quot;custom&quot;:&quot;instance.emit('executeDoBlock', instance.component);&quot;,&quot;input&quot;:true,&quot;type&quot;:&quot;button&quot;}]" CalloutTheme="{}{&quot;Activities&quot;:[&quot;CALLOUT&quot;],&quot;Id&quot;:&quot;100100&quot;,&quot;Name&quot;:&quot;Default&quot;,&quot;BaseCss&quot;:&quot;../../assets/css/themes/cerulean.bootstrap.min.css&quot;,&quot;ImageSrc&quot;:&quot;../../assets/themeicons/cerulean.png&quot;,&quot;OverrideCssUrl&quot;:&quot;../../assets/css/themes/callout-cerulean-white.css&quot;,&quot;UserStyleOverrides&quot;:&quot;&quot;,&quot;Properties&quot;:&quot;&quot;,&quot;IsCustomTheme&quot;:false,&quot;Version&quot;:1,&quot;ThemeVersion&quot;:1}" DisplayName="Callout Designer" GenerateInputFields="False" Height="237" sap:VirtualizedContainerService.HintSize="244,81" sap2010:WorkflowViewState.IdRef="CallOutActivity_1" Width="355">
+              <uca:CallOutActivity.CalloutFieldsCollection>
+                <InArgument x:TypeArguments="x:String" x:Key="description">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strWorkType" />
+                </InArgument>
+              </uca:CallOutActivity.CalloutFieldsCollection>
+              <uca:CallOutActivity.TargetElementPosition>
+                <InArgument x:TypeArguments="sd:Rectangle">
+                  <DelegateArgumentValue x:TypeArguments="sd:Rectangle" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_1">
+                    <DelegateInArgument x:TypeArguments="sd:Rectangle" x:Name="__ReferenceID0" Name="TargetElementPosition" />
+                  </DelegateArgumentValue>
+                </InArgument>
+              </uca:CallOutActivity.TargetElementPosition>
+              <uca:CallOutActivity.TargetWindowHandle>
+                <InArgument x:TypeArguments="s:IntPtr">
+                  <DelegateArgumentValue x:TypeArguments="s:IntPtr" sap2010:WorkflowViewState.IdRef="DelegateArgumentValue`1_2">
+                    <DelegateInArgument x:TypeArguments="s:IntPtr" x:Name="__ReferenceID1" Name="TargetWindowHandle" />
+                  </DelegateArgumentValue>
+                </InArgument>
+              </uca:CallOutActivity.TargetWindowHandle>
+            </uca:CallOutActivity>
+          </ActivityFunc>
+        </ui:CalloutScope.CalloutForm>
+        <ui:CalloutScope.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4d577e1-353b-4921-8c9f-55655aa49334" InformativeScreenshot="222292273f43a3606293b0566641304b" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Activity' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
           </ui:Target>
-        </ui:SelectItem.Target>
-      </ui:SelectItem>
-      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Job Start Date" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[IN_strJobStartDate]">
+        </ui:CalloutScope.Target>
+      </ui:CalloutScope>
+      <TryCatch DisplayName="Try Set Start Date" sap:VirtualizedContainerService.HintSize="520,266" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch.Variables>
+          <Variable x:TypeArguments="x:String" Name="strScrape" />
+        </TryCatch.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <ui:RetryScope DisplayName="Retry" sap:VirtualizedContainerService.HintSize="418,477" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3" RetryInterval="00:00:02">
+            <ui:RetryScope.ActivityBody>
+              <ActivityAction>
+                <Sequence DisplayName="Set Start Date" sap:VirtualizedContainerService.HintSize="376,296" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Start Date" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_16" Text="[IN_strJobStartDate &amp; &quot;[k(tab)]&quot;]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6341232a-13c3-4db8-9b44-912c46910ba3" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
+                    <ui:GetVisibleText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="694618e8-0fc3-4658-aa01-d68f0a44d9aa" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
+                      </ui:Target>
+                    </ui:GetVisibleText.Target>
+                    <ui:GetVisibleText.Text>
+                      <OutArgument x:TypeArguments="x:String">[strScrape]</OutArgument>
+                    </ui:GetVisibleText.Text>
+                  </ui:GetVisibleText>
+                </Sequence>
+              </ActivityAction>
+            </ui:RetryScope.ActivityBody>
+            <ui:RetryScope.Condition>
+              <ActivityFunc x:TypeArguments="x:Boolean">
+                <p:IsTrue DisplayName="Is true" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="IsTrue_1" Input="[strScrape = IN_strJobStartDate]" />
+              </ActivityFunc>
+            </ui:RetryScope.Condition>
+          </ui:RetryScope>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,104" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Throw DisplayName="Throw unable to enter" Exception="[new Exception(&quot;Unable to enter start date&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_6" />
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
+      <TryCatch DisplayName="Try Set End Date" sap:VirtualizedContainerService.HintSize="520,266" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+        <TryCatch.Variables>
+          <Variable x:TypeArguments="x:String" Name="strScrape" />
+        </TryCatch.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <TryCatch.Try>
+          <ui:RetryScope DisplayName="Retry" sap:VirtualizedContainerService.HintSize="418,477" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3" RetryInterval="00:00:02">
+            <ui:RetryScope.ActivityBody>
+              <ActivityAction>
+                <Sequence DisplayName="Set Start Date" sap:VirtualizedContainerService.HintSize="376,296" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type End Date" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_17" Text="[IN_strJobEndDate &amp; &quot;[k(tab)]&quot;]">
+                    <ui:TypeInto.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6341232a-13c3-4db8-9b44-912c46910ba3" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:TypeInto.Target>
+                  </ui:TypeInto>
+                  <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetVisibleText_2">
+                    <ui:GetVisibleText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="694618e8-0fc3-4658-aa01-d68f0a44d9aa" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                        <ui:Target.TimeoutMS>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:Target.TimeoutMS>
+                      </ui:Target>
+                    </ui:GetVisibleText.Target>
+                    <ui:GetVisibleText.Text>
+                      <OutArgument x:TypeArguments="x:String">[strScrape]</OutArgument>
+                    </ui:GetVisibleText.Text>
+                  </ui:GetVisibleText>
+                </Sequence>
+              </ActivityAction>
+            </ui:RetryScope.ActivityBody>
+            <ui:RetryScope.Condition>
+              <ActivityFunc x:TypeArguments="x:Boolean">
+                <p:IsTrue DisplayName="Is true" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="IsTrue_2" Input="[strScrape = IN_strJobEndDate]" />
+              </ActivityFunc>
+            </ui:RetryScope.Condition>
+          </ui:RetryScope>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,104" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Throw DisplayName="Throw unable to enter" Exception="[new Exception(&quot;Unable to enter end date&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_7" />
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+      </TryCatch>
+      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Scheme / Reference" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_5" Text="[IN_strScheme]">
         <ui:SetValue.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="843f2366ebd8c82863365b35273c9536" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;">
-            <ui:Target.TimeoutMS>
-              <InArgument x:TypeArguments="x:Int32" />
-            </ui:Target.TimeoutMS>
-            <ui:Target.WaitForReady>
-              <InArgument x:TypeArguments="ui:WaitForReady" />
-            </ui:Target.WaitForReady>
-          </ui:Target>
-        </ui:SetValue.Target>
-      </ui:SetValue>
-      <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Job End Date" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[IN_strJobEndDate]">
-        <ui:SetValue.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="b2183ac1516f58a283dfc932ac1435e0" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="25f5dbbbbf0011bcfdce1a59936ac149" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.UserReference' tag='INPUT' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -293,7 +432,7 @@
           </ui:Target>
         </ui:SelectItem.Target>
       </ui:SelectItem>
-      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select On Behalf Of" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="[IN_strOnBehalfOf]">
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="Should always be Utility" DisplayName="Select On Behalf Of" sap:VirtualizedContainerService.HintSize="520,165" sap2010:WorkflowViewState.IdRef="SelectItem_6" Item="[IN_strOnBehalfOf]">
         <ui:SelectItem.Items>
           <scg:List x:TypeArguments="x:String" Capacity="8">
             <x:String>-- Please Select --</x:String>
@@ -311,8 +450,13 @@
             </ui:Target.TimeoutMS>
           </ui:Target>
         </ui:SelectItem.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:SelectItem>
-      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Name of Authority" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SelectItem_7" Item="[IN_strAuthorityName]">
+      <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" sap2010:Annotation.AnnotationText="Should always be the Environment Agency" DisplayName="Select Name of Authority" sap:VirtualizedContainerService.HintSize="520,165" sap2010:WorkflowViewState.IdRef="SelectItem_7" Item="[IN_strAuthorityName]">
         <ui:SelectItem.Items>
           <scg:List x:TypeArguments="x:String" Capacity="50">
             <x:String>-- Please Select --</x:String>
@@ -374,6 +518,11 @@
             </ui:Target.TimeoutMS>
           </ui:Target>
         </ui:SelectItem.Target>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
       </ui:SelectItem>
       <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Contact Name" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[IN_strSiteContactName]">
         <ui:SetValue.Target>
@@ -400,7 +549,7 @@
         </ui:SetValue.Target>
       </ui:SetValue>
     </Sequence>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Next'" sap:VirtualizedContainerService.HintSize="562,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -422,7 +571,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="497,976" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="562,976" sap2010:WorkflowViewState.IdRef="Switch`1_2">
       <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="401,574" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -588,7 +737,7 @@
         </ui:TypeInto>
       </Sequence>
     </Switch>
-    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Search'" sap:VirtualizedContainerService.HintSize="562,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -600,7 +749,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="34e01ef42c370eed19386900bf8c7fec" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='EnquiryDetailsPanel' tag='BUTTON' aaname='&amp;gt;Next' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="bfdae63ff9ba66356710c22d540a7857" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='Search' parentid='EnquiryLocationPanel' tag='BUTTON' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
