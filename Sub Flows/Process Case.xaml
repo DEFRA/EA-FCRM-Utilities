@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>871,2224</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>888,2184</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -181,8 +181,12 @@
           <If.Then>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Pausepoint" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Pausepoint.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">Pausepoint 1</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">["&lt;h1&gt;Please check the below:&lt;/h1&gt;&lt;br&gt;&lt;br&gt;The oldest available email as been moved to the " &amp; IN_dictConfig("Email In Progress Folder").ToString &amp; " folder,&lt;br&gt;The email being processed is in the correct format (with a valid pro forma attached - as an .xls* file); if it is not a valid pro forma, please check that an email to the requestor has been issued asking for it to be re-submitted.&lt;br&gt;Requested dates valid: " &amp; IN_dictProFormaData("Original Dates Valid").ToString &amp; "&lt;br&gt;Start Date: " &amp; IN_dictProFormaData("Proposed Start Date").ToString &amp; "&lt;br&gt;End Date: " &amp; IN_dictProFormaData("Proposed End Date").ToString &amp; "&lt;br&gt;The following services will be checked : &lt;br&gt;" &amp; string.Join("&lt;br&gt;",IN_dictProFormaData("Requested Services").split(","c))]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">
+                  <Literal x:TypeArguments="x:String">Pausepoint 1</Literal>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;&lt;h1&gt;Please check the below:&lt;/h1&gt;&lt;br&gt;&lt;br&gt;The oldest available email as been moved to the &quot; &amp; IN_dictConfig(&quot;Email In Progress Folder&quot;).ToString &amp; &quot; folder,&lt;br&gt;The email being processed is in the correct format (with a valid pro forma attached - as an .xls* file); if it is not a valid pro forma, please check that an email to the requestor has been issued asking for it to be re-submitted.&lt;br&gt;Requested dates valid: &quot; &amp; IN_dictProFormaData(&quot;Original Dates Valid&quot;).ToString &amp; &quot;&lt;br&gt;Start Date: &quot; &amp; Convert.ToDateTime(IN_dictProFormaData(&quot;Proposed Start Date&quot;).ToString).ToString(&quot;dd/MM/yyyy&quot;) &amp; &quot;&lt;br&gt;End Date: &quot; &amp; Convert.ToDateTime(IN_dictProFormaData(&quot;Proposed End Date&quot;).ToString).ToString(&quot;dd/MM/yyyy&quot;) &amp; &quot;&lt;br&gt;The following services will be checked : &lt;br&gt;&quot; &amp; string.Join(&quot;&lt;br&gt;&quot;,IN_dictProFormaData(&quot;Requested Services&quot;).split(&quot;,&quot;c))" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -208,31 +212,53 @@
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="service" />
                 </ActivityAction.Argument>
-                <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each provider" sap:VirtualizedContainerService.HintSize="370,246" sap2010:WorkflowViewState.IdRef="ForEach`1_16" Values="[jobAreaData(service)(&quot;Providers&quot;)]">
+                <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each provider" sap:VirtualizedContainerService.HintSize="562,586" sap2010:WorkflowViewState.IdRef="ForEach`1_16" Values="[jobAreaData(service)(&quot;Providers&quot;)]">
                   <ui:ForEach.Body>
                     <ActivityAction x:TypeArguments="njl:JToken">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="njl:JToken" Name="provider" />
                       </ActivityAction.Argument>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Search" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Conduct Search.xaml">
-                        <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictProFormaData">[IN_dictProFormaData]</InArgument>
-                          <InOutArgument x:TypeArguments="njl:JToken" x:Key="IO_jobProvider">[provider]</InOutArgument>
-                          <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credBT">[IN_credBT]</InArgument>
-                          <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUD">[IN_credLSBUD]</InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentDirectory">[IN_strAttachmentDirectory]</InArgument>
-                          <InOutArgument x:TypeArguments="x:Boolean" x:Key="IO_booFinishSearch">[booFinishSearch]</InOutArgument>
-                          <InOutArgument x:TypeArguments="x:String" x:Key="IO_strReferenceNumber">[strReferenceNumber]</InOutArgument>
-                          <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDMembersTable">[jobLSBUDTable]</InOutArgument>
-                          <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDNonMembersTable">[jobNonMemberTableLSBUD]</InOutArgument>
-                        </ui:InvokeWorkflowFile.Arguments>
+                      <Sequence DisplayName="Conduct search and add returns queue request" sap:VirtualizedContainerService.HintSize="526,452" sap2010:WorkflowViewState.IdRef="Sequence_13">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                      </ui:InvokeWorkflowFile>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Search" sap:VirtualizedContainerService.HintSize="484,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Conduct Search.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictProFormaData">[IN_dictProFormaData]</InArgument>
+                            <InOutArgument x:TypeArguments="njl:JToken" x:Key="IO_jobProvider">[provider]</InOutArgument>
+                            <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credBT">[IN_credBT]</InArgument>
+                            <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUD">[IN_credLSBUD]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentDirectory">[IN_strAttachmentDirectory]</InArgument>
+                            <InOutArgument x:TypeArguments="x:Boolean" x:Key="IO_booFinishSearch">[booFinishSearch]</InOutArgument>
+                            <InOutArgument x:TypeArguments="x:String" x:Key="IO_strReferenceNumber">[strReferenceNumber]</InOutArgument>
+                            <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDMembersTable">[jobLSBUDTable]</InOutArgument>
+                            <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDNonMembersTable">[jobNonMemberTableLSBUD]</InOutArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:InvokeWorkflowFile>
+                        <If Condition="[strReferenceNumber &lt;&gt; &quot;Not yet supported&quot;]" DisplayName="If able to conduct search" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <ui:AddTransactionItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" TransactionItem="{x:Null}" DisplayName="Add Transaction Item" FolderPath="[IN_dictConfig(&quot;Orchestrator Folder Path&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddTransactionItem_1" QueueType="[IN_dictConfig(&quot;Returns Queue&quot;)]" Reference="[strReferenceNumber]">
+                              <ui:AddTransactionItem.TransactionInformation>
+                                <InArgument x:TypeArguments="x:String" x:Key="strRequestorEmail">[IN_dictProFormaData("Return Email(s)")]</InArgument>
+                              </ui:AddTransactionItem.TransactionInformation>
+                            </ui:AddTransactionItem>
+                          </If.Then>
+                        </If>
+                      </Sequence>
                     </ActivityAction>
                   </ui:ForEach.Body>
                   <sap:WorkflowViewStateService.ViewState>
@@ -263,7 +289,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:BuildDataTable DataTable="[dataSearchReport]" DisplayName="Build Data Table Headers" sap:VirtualizedContainerService.HintSize="630,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Service&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Provider&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Location&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Outcome&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+                <ui:BuildDataTable DataTable="[dataSearchReport]" DisplayName="Build Data Table Headers" sap:VirtualizedContainerService.HintSize="630,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Service&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Provider&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Location&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Outcome&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
@@ -393,7 +419,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">300,482.04 300,504.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Get DataTables &amp; build report" sap:VirtualizedContainerService.HintSize="554,1535" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence DisplayName="Get DataTables &amp; build report" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="sd:DataTable" Name="dataTableToInput" />
                     </Sequence.Variables>
@@ -406,9 +432,7 @@
                       <InvokeMethod.TargetObject>
                         <InArgument x:TypeArguments="njl:JArray">[jarTables]</InArgument>
                       </InvokeMethod.TargetObject>
-                      <InArgument x:TypeArguments="njl:JObject">
-                        <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="jobSearchReportTable" />
-                      </InArgument>
+                      <InArgument x:TypeArguments="njl:JObject">[jobSearchReportTable]</InArgument>
                     </InvokeMethod>
                     <InvokeMethod DisplayName="Add LSBUD Members Object" sap:VirtualizedContainerService.HintSize="512,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
                       <InvokeMethod.TargetObject>

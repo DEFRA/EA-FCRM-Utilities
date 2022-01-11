@@ -14,7 +14,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2720,1810</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2641,1810</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GlobalHandler_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -163,7 +163,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <r:Log_Case___Preset DisplayName="Log Case - Exception" sap:VirtualizedContainerService.HintSize="334,22" IN_dateCaseEndTime="[Now]" IN_dateCaseStartTime="[Convert.ToDateTime(errorInfo.Exception.Data(&quot;StartTime&quot;).ToString)]" IN_dateCaseTotalTime="[(Now - Convert.ToDateTime(errorInfo.Exception.Data(&quot;StartTime&quot;).ToString)).ToString]" IN_strCaseID="[JsonConvert.DeserializeObject(of Dictionary(of string, string))(JsonConvert.SerializeObject(errorInfo.Exception.Data(&quot;EmailData&quot;)))(&quot;Email&quot;)]" IN_strFailureMessage="[errorInfo.Exception.Message]" IN_strFilePath="[String.Format(dictConfig(&quot;Local Log File Path&quot;),Environment.UserName,DateTime.Now.ToString(&quot;dd.MM.yyyy&quot;))]" IN_strNotes="[&quot;Stopped at Data Exception due to &quot; &amp; strReason]" IN_strSuccessful="Business Exception" IN_strUser="[Environment.UserName]" IN_strWorkpackageName="[dictConfig(&quot;Workpackage Name&quot;).ToString]" sap2010:WorkflowViewState.IdRef="Log_Case___Preset_1" />
-                      <ui:GetOutlookMailMessages Filter="{x:Null}" FilterByMessageIds="{x:Null}" TimeoutMS="{x:Null}" Account="[dictConfig(&quot;Email Account&quot;)]" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[dictConfig(&quot;Email In Progress Folder&quot;).ToString]" MarkAsRead="False" Messages="[listMail]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Top="1" />
+                      <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" Messages="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" OnlyUnreadMessages="True" Top="30" />
                       <ui:MoveOutlookMessage Account="[dictConfig(&quot;Email Account&quot;)]" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_1" MailFolder="[dictConfig(&quot;Email Exception Folder&quot;)]" MailMessage="[listMail(0)]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">

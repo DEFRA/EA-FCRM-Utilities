@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>891,4633</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>859,5524</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Pro_Forma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -71,7 +71,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read fields" sap:VirtualizedContainerService.HintSize="832,4568" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Read fields" sap:VirtualizedContainerService.HintSize="832,5459" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arrStrMatches" />
     </Sequence.Variables>
@@ -88,13 +88,13 @@
         <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[new Dictionary(of string, GenericValue)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="790,3322" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[IN_strProFormaPath]">
+    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="790,4213" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[IN_strProFormaPath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Get cell values" sap:VirtualizedContainerService.HintSize="756,3213" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Get cell values" sap:VirtualizedContainerService.HintSize="756,4104" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -108,6 +108,11 @@
                 <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
               </Assign.Value>
             </Assign>
+            <ui:ExcelReadCell Cell="F10" DisplayName="Read Cell - Scheme Name" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_16" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Scheme Name")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
             <ui:ExcelReadCell Cell="F12" DisplayName="Read Cell - Requestor's Name" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Name")]</OutArgument>
@@ -128,6 +133,11 @@
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Request Date")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="G20" DisplayName="Read Cell - Requestor Phone No." sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_17" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor Phone No.")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
             <ui:ExcelReadCell Cell="G22" DisplayName="Read Cell - Proposed Start Date" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_5" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed Start Date")]</OutArgument>
@@ -136,6 +146,11 @@
             <ui:ExcelReadCell Cell="G24" DisplayName="Read Cell - Proposed End Date" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_6" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Proposed End Date")]</OutArgument>
+              </ui:ExcelReadCell.Result>
+            </ui:ExcelReadCell>
+            <ui:ExcelReadCell Cell="G26" DisplayName="Read Cell - Plan Scale" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_18" SheetName="Sheet2">
+              <ui:ExcelReadCell.Result>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Plan Scale")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
             <ui:ExcelReadCell Cell="E31" DisplayName="Read Cell - Gas" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_7" SheetName="Sheet2">
@@ -282,11 +297,43 @@
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 1")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
+            <If Condition="[OUT_dictProFormaData(&quot;Return Email 1&quot;) is Nothing]" DisplayName="If nothing" sap:VirtualizedContainerService.HintSize="714,207" sap2010:WorkflowViewState.IdRef="If_10">
+              <If.Then>
+                <Assign DisplayName="Set to empty" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 1")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
             <ui:ExcelReadCell Cell="F62" DisplayName="Read Cell - Return Email 2" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_14" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 2")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
+            <If Condition="[OUT_dictProFormaData(&quot;Return Email 2&quot;) is Nothing]" DisplayName="If nothing" sap:VirtualizedContainerService.HintSize="714,207" sap2010:WorkflowViewState.IdRef="If_11">
+              <If.Then>
+                <Assign DisplayName="Set to empty" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_45">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 2")]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="ui:GenericValue">[""]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </If.Then>
+            </If>
+            <Assign DisplayName="Set Return Email(s)" sap:VirtualizedContainerService.HintSize="714,60" sap2010:WorkflowViewState.IdRef="Assign_43">
+              <Assign.To>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email(s)")]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Return Email 1").ToString.Trim &amp; "; " &amp; OUT_dictProFormaData("Return Email 2").ToString.Trim]</InArgument>
+              </Assign.Value>
+            </Assign>
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>

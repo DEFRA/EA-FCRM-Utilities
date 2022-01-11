@@ -4,7 +4,7 @@
     <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
     <x:Property Name="IN_strPlanScale" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>985,1547</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>974,1456</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="18">
@@ -53,7 +53,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="562,1482" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="562,1391" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strAvailableScales" />
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ienScales" />
@@ -64,63 +64,6 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="520,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="346,641" sap2010:WorkflowViewState.IdRef="Sequence_13">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="TEST SEQUENCE" sap:VirtualizedContainerService.HintSize="304,553" sap2010:WorkflowViewState.IdRef="Sequence_11">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Init Output" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-              <Assign.To>
-                <OutArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[IN_dictProFormaData]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)">[new Dictionary(of string, GenericValue)]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign DisplayName="LocationType" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictProFormaData("Location Format")]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="ui:GenericValue">["Grid Reference"]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign DisplayName="Location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
-              <Assign.To>
-                <OutArgument x:TypeArguments="ui:GenericValue">[IN_dictProFormaData("Locations")]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="ui:GenericValue">["TQ9612067132;TQ9628067118"]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <Assign DisplayName="Assign Location Counter" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:Int64">[IN_IntCounter]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:Int64">[(IN_dictProFormaData("Locations").tostring).split(";"c).Length - 1]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[IN_intCounter.ToString]" />
-          </Sequence>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
     <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Available Scales" sap:VirtualizedContainerService.HintSize="520,106" sap2010:WorkflowViewState.IdRef="GetFullText_1">
       <ui:GetFullText.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64cc3244-84d0-48a9-9528-9fea5ac1de7b" InformativeScreenshot="981cf87246f1786891ae45aba16d81a0" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&lt;webctrl id='select2' tag='SELECT' aaname='Please select the diameter for the map area you require.' /&gt;" WaitForReady="COMPLETE">
@@ -190,7 +133,7 @@
         </scg:List>
       </ui:SelectItem.Items>
       <ui:SelectItem.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="981cf87246f1786891ae45aba16d81a0" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&#xD;&#xA;&lt;webctrl id='select2' tag='SELECT' aaname='Please select the diameter for the map area you require.' /&gt;&#xD;&#xA;" WaitForReady="COMPLETE">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="981cf87246f1786891ae45aba16d81a0" Selector="&lt;html url='https://www.swns.bt.com/pls/mbe/main.entry' /&gt;&#xA;&lt;webctrl id='select2' tag='SELECT' aaname='Please select the diameter for the map area you require.' /&gt;&#xA;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
