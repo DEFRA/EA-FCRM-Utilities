@@ -4,7 +4,7 @@
     <x:Property Name="OUT_dataLSBUDMembers" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="OUT_dataLSBUDNonMembers" Type="OutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1320,1189</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>993,933</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -60,7 +60,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Reference Number" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_3">
+    <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Retry Point: Get Reference Number" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetVisibleText_3">
       <ui:GetVisibleText.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9dd93bb6-e8a1-4686-a6a9-97edcdf2b47f" InformativeScreenshot="6e4fa8c19648087d82b9f84130ae670d" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SubmittedEnquiry.Id' tag='SPAN' /&gt;" TimeoutMS="60000" WaitForReady="COMPLETE" />
       </ui:GetVisibleText.Target>

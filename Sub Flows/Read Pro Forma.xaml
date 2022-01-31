@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>859,5524</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>993,5524</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Pro_Forma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -123,9 +123,9 @@
                 <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Email")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
-            <ui:ExcelReadCell Cell="F16" DisplayName="Read Cell - Requestor's Region" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Sheet2">
+            <ui:ExcelReadCell Cell="F16" DisplayName="Read Cell - Requestor Region" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_3" SheetName="Sheet2">
               <ui:ExcelReadCell.Result>
-                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor's Region")]</OutArgument>
+                <OutArgument x:TypeArguments="ui:GenericValue">[OUT_dictProFormaData("Requestor Region")]</OutArgument>
               </ui:ExcelReadCell.Result>
             </ui:ExcelReadCell>
             <ui:ExcelReadCell Cell="G18" DisplayName="Read Cell - Request Date" sap:VirtualizedContainerService.HintSize="714,59" sap2010:WorkflowViewState.IdRef="ExcelReadCell_4" SheetName="Sheet2">
