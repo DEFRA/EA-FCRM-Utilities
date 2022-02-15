@@ -4,7 +4,7 @@
     <x:Property Name="OUT_dataLSBUDMembers" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="OUT_dataLSBUDNonMembers" Type="OutArgument(sd:DataTable)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>993,933</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1051,1189</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -68,7 +68,7 @@
         <OutArgument x:TypeArguments="x:String">[OUT_strReference]</OutArgument>
       </ui:GetVisibleText.Text>
     </ui:GetVisibleText>
-    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[OUT_dataLSBUDNonMembers]" DisplayName="Extract LSBUD Non Members Table" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100" SimulateClick="True">
+    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="False" DataTable="[OUT_dataLSBUDNonMembers]" DisplayName="Retry Point: Extract LSBUD Non Members Table" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100" SimulateClick="True">
       <ui:ExtractData.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d5d5aaa5-f667-4613-a205-991b6cbaa85a" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='Asset Owner*' parentid='EnquirySummaryListsPanel' tag='TABLE' class='BlueList' parentclass='PanelContent' /&gt;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>
@@ -77,7 +77,7 @@
         </ui:Target>
       </ui:ExtractData.Target>
     </ui:ExtractData>
-    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[OUT_dataLSBUDMembers]" DisplayName="Extract LSBUD Members Table" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
+    <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="False" DataTable="[OUT_dataLSBUDMembers]" DisplayName="Retry Point: Extract LSBUD Members Table" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="ExtractData_1" MaxNumberOfResults="100" SimulateClick="True">
       <ui:ExtractData.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d5d5aaa5-f667-4613-a205-991b6cbaa85a" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='Asset Owner Phone/Email Emergency Only Status' parentid='EnquirySummaryListsPanel' tag='TABLE' class='RedList' parentclass='PanelContent' /&gt;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>

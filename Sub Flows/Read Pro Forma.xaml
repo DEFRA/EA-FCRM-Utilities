@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>993,5524</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1051,6054</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Pro_Forma_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -71,7 +71,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read fields" sap:VirtualizedContainerService.HintSize="832,5459" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Read fields" sap:VirtualizedContainerService.HintSize="832,5989" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="arrStrMatches" />
     </Sequence.Variables>
@@ -416,7 +416,7 @@
         </Assign>
       </Sequence>
     </Switch>
-    <Sequence DisplayName="Validate" sap:VirtualizedContainerService.HintSize="790,792" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="Validate" sap:VirtualizedContainerService.HintSize="790,1322" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:DateTime" Name="dateStartDate" />
         <Variable x:TypeArguments="s:DateTime" Name="dateEndDate" />
@@ -426,7 +426,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="Store Start Date" sap:VirtualizedContainerService.HintSize="611,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign DisplayName="Store Start Date" sap:VirtualizedContainerService.HintSize="665,60" sap2010:WorkflowViewState.IdRef="Assign_8">
         <Assign.To>
           <OutArgument x:TypeArguments="s:DateTime">[dateStartDate]</OutArgument>
         </Assign.To>
@@ -434,7 +434,7 @@
           <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(OUT_dictProFormaData("Proposed Start Date"), "MM/dd/yyyy HH:mm:ss", new system.Globalization.CultureInfo("En"))]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign DisplayName="Store End Date" sap:VirtualizedContainerService.HintSize="611,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign DisplayName="Store End Date" sap:VirtualizedContainerService.HintSize="665,60" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
           <OutArgument x:TypeArguments="s:DateTime">[dateEndDate]</OutArgument>
         </Assign.To>
@@ -442,7 +442,7 @@
           <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(OUT_dictProFormaData("Proposed End Date"), "MM/dd/yyyy HH:mm:ss", new system.Globalization.CultureInfo("En"))]</InArgument>
         </Assign.Value>
       </Assign>
-      <If Condition="[dateEndDate &lt;= Today OR dateStartDate &lt;= Today]" DisplayName="If Dates are incorrect" sap:VirtualizedContainerService.HintSize="611,500" sap2010:WorkflowViewState.IdRef="If_1">
+      <If Condition="[dateEndDate &lt;= Today OR dateStartDate &lt;= Today]" DisplayName="If Dates are incorrect" sap:VirtualizedContainerService.HintSize="665,500" sap2010:WorkflowViewState.IdRef="If_1">
         <If.Then>
           <Sequence DisplayName="Set dates to default + flag" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
@@ -487,6 +487,24 @@
           </Assign>
         </If.Else>
       </If>
+      <ui:ForEach x:TypeArguments="scg:KeyValuePair(x:String, ui:GenericValue)" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="665,490" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[OUT_dictProFormaData]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="scg:KeyValuePair(x:String, ui:GenericValue)">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="scg:KeyValuePair(x:String, ui:GenericValue)" Name="Entry" />
+            </ActivityAction.Argument>
+            <If Condition="[Entry.Key.StartsWith(&quot;Return Email&quot;)]" DisplayName="If Return Email 1 or 2 &gt; skip" sap:VirtualizedContainerService.HintSize="629,356" sap2010:WorkflowViewState.IdRef="If_12">
+              <If.Else>
+                <If Condition="[Entry.Value.ToString.Trim = &quot;&quot;]" DisplayName="If value is blank" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_13">
+                  <If.Then>
+                    <Throw DisplayName="Throw BRE" Exception="[new BusinessRuleException(Entry.Key &amp; &quot; field has not been filled in, please fill this is as it is a required field.&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  </If.Then>
+                </If>
+              </If.Else>
+            </If>
+          </ActivityAction>
+        </ui:ForEach.Body>
+      </ui:ForEach>
     </Sequence>
   </Sequence>
 </Activity>
