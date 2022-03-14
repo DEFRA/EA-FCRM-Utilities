@@ -13,10 +13,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2776,1191</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1069,831</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Conduct_Search_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="50">
+    <scg:List x:TypeArguments="x:String" Capacity="54">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -44,6 +44,7 @@
       <x:String>System.Net</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -79,6 +80,7 @@
   <Flowchart DisplayName="Conduct_Search" sap:VirtualizedContainerService.HintSize="634,647" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="strReferenceNumber" />
+      <Variable x:TypeArguments="x:String" Name="strNextLocation" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -267,7 +269,7 @@
             <av:PointCollection x:Key="ConnectorLocation">470,293 470,446.5 324.5,446.5 324.5,476.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="990,3882" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="990,4261" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="booLSBUDopen" />
             <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
@@ -305,13 +307,23 @@
               <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="948,3238" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
+          <Assign DisplayName="blank location" sap:VirtualizedContainerService.HintSize="948,60" sap2010:WorkflowViewState.IdRef="Assign_56">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="948,3517" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="location" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Search and get ref" sap:VirtualizedContainerService.HintSize="912,3104" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence DisplayName="Search and get ref" sap:VirtualizedContainerService.HintSize="912,3383" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="dtaTable" />
                   </Sequence.Variables>
@@ -328,12 +340,18 @@
                       <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If Condition="[IO_booFinishSearch]" DisplayName="If not required" sap:VirtualizedContainerService.HintSize="870,2712" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If sap2010:Annotation.AnnotationText="Either the user has selected to finish the search, or has selected a specific next location" Condition="[(IO_booFinishSearch) OR (strNextLocation.Trim &lt;&gt; &quot;&quot; AND strNextLocation.Trim &lt;&gt; location)]" DisplayName="If not required" sap:VirtualizedContainerService.HintSize="870,2991" sap2010:WorkflowViewState.IdRef="If_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
                     <If.Else>
-                      <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="725,2564" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="725,2812" sap2010:WorkflowViewState.IdRef="Sequence_11">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="njl:JArray" Name="jarLSBUDNonMembersArray" />
                           <Variable x:TypeArguments="x:String" Name="strImagePath" />
+                          <Variable x:TypeArguments="x:String" Name="strFormOutput" />
                         </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -382,11 +400,47 @@
                         </If>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke User Location Input" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\User Location Input.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">Map input required</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">["&lt;h1&gt;Please interact with the map to mimic the attached image&lt;/h1&gt;&lt;br&gt;When you are happy the map is accurate, select from the buttons below.&lt;br&gt; Select 'Continue' to continue searching the remaining locations, select 'Finish Searching LSBud' if no further LSBud searches are required, or select 'Stop' if you need to halt the processing here.&lt;br&gt;&lt;br&gt;&lt;img src='/file://" &amp; strImagePath &amp; "' /&gt;"]</InArgument>
-                            <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booFinish">[IO_booFinishSearch]</OutArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">
+                              <Literal x:TypeArguments="x:String">Map input required</Literal>
+                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">
+                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;&lt;h1&gt;Please interact with the map to mimic the attached image&lt;/h1&gt;&lt;br&gt;When you are happy the map is accurate, select from the buttons below.&lt;br&gt; Select 'Continue' to continue searching the remaining locations, select 'Finish Searching LSBud' if no further LSBud searches are required, or select 'Stop' if you need to halt the processing here.&lt;br&gt;&lt;br&gt;&lt;img src='/file://&quot; &amp; strImagePath &amp; &quot;' /&gt;&quot;" />
+                            </InArgument>
+                            <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booFinish">
+                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="IO_booFinishSearch" />
+                            </OutArgument>
+                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="IN_listLocations">
+                              <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c).ToList" />
+                            </InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strOutputFields">
+                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strFormOutput" />
+                            </OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
+                        <If Condition="[CBool(newtonsoft.json.JsonConvert.DeserializeObject(of JObject)(strFormOutput)(&quot;pickNextLocation&quot;))]" DisplayName="If selected specific location" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_14">
+                          <If.Then>
+                            <Assign DisplayName="Store desired location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_54">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[Regex.Replace(newtonsoft.json.JsonConvert.DeserializeObject(of JObject)(strFormOutput)("selectNextLocation").toString, "\d:", "").Trim]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                          <If.Else>
+                            <Assign DisplayName="blank location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_55">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
                         <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Description" sap:VirtualizedContainerService.HintSize="683,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[IN_dictProFormaData(&quot;Description&quot;)]">
                           <ui:SetValue.Target>
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="78f1493746c1b055728f0644f4474642" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.AdditionalNotes' tag='TEXTAREA' /&gt;">
