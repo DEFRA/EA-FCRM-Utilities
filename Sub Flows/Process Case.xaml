@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1068,3052</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1046,3051</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -84,7 +84,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="714,2987" sap2010:WorkflowViewState.IdRef="Sequence_21">
+  <Sequence DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="714,2986" sap2010:WorkflowViewState.IdRef="Sequence_21">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="jobAreaData" />
       <Variable x:TypeArguments="x:Boolean" Name="booFinishSearch" />
@@ -242,7 +242,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <Sequence DisplayName="Build Search Report Table" sap:VirtualizedContainerService.HintSize="672,1429" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Build Search Report Table" sap:VirtualizedContainerService.HintSize="672,1428" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="njl:JArray" Name="jarSearchReportTable" />
         <Variable x:TypeArguments="sd:DataTable" Name="dataSearchReport" />
@@ -260,13 +260,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:BuildDataTable>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="630,846" sap2010:WorkflowViewState.IdRef="ForEach`1_28" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="630,845" sap2010:WorkflowViewState.IdRef="ForEach`1_28" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:String" Name="service" />
             </ActivityAction.Argument>
-            <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each provider" sap:VirtualizedContainerService.HintSize="594,712" sap2010:WorkflowViewState.IdRef="ForEach`1_27" Values="[jobAreaData(service)(&quot;Providers&quot;)]">
+            <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each provider" sap:VirtualizedContainerService.HintSize="594,711" sap2010:WorkflowViewState.IdRef="ForEach`1_27" Values="[jobAreaData(service)(&quot;Providers&quot;)]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="njl:JToken">
                   <ActivityAction.Argument>
