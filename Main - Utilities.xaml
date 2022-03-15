@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="EA_Utilities_Request" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1051,1189" sap2010:WorkflowViewState.IdRef="ReFramework_Example_1" ImplementationVersion="0.1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sn="clr-namespace:System.Net;assembly=System" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="EA_Utilities_Request" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1338,928" sap2010:WorkflowViewState.IdRef="ReFramework_Example_1" ImplementationVersion="0.1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sn="clr-namespace:System.Net;assembly=System" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="58">
       <x:String>System.Activities</x:String>
@@ -661,9 +661,9 @@
                     <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="exeSystemException is Nothing and exeBusinessException is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="145,83" sap2010:WorkflowViewState.IdRef="State_12">
+                    <State x:Name="__ReferenceID3" DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="881,2990" sap2010:WorkflowViewState.IdRef="State_12">
                       <State.Entry>
-                        <TryCatch DisplayName="Try Process Case" sap:VirtualizedContainerService.HintSize="835,2724" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                        <TryCatch DisplayName="Try Process Case" sap:VirtualizedContainerService.HintSize="835,2576" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -671,7 +671,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <TryCatch.Try>
-                            <Sequence DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="797,2453" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                            <Sequence DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="797,2305" sap2010:WorkflowViewState.IdRef="Sequence_6">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="strReference" />
                                 <Variable x:TypeArguments="x:String" Name="strSelectedOption" />
@@ -757,7 +757,7 @@
                                   </ui:ExcelApplicationScope>
                                 </If.Then>
                               </If>
-                              <Sequence DisplayName="Move and Reply to Mail" sap:VirtualizedContainerService.HintSize="755,998" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                              <Sequence DisplayName="Move and Reply to Mail" sap:VirtualizedContainerService.HintSize="755,850" sap2010:WorkflowViewState.IdRef="Sequence_23">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="listMail" />
                                 </Sequence.Variables>
@@ -767,45 +767,22 @@
                                     <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill EXCEL - to help aid log" sap:VirtualizedContainerService.HintSize="713,22" sap2010:WorkflowViewState.IdRef="KillProcess_5" ProcessName="EXCEL" />
-                                <If Condition="[dictProFormaData(&quot;Return Email(s)&quot;).Trim &lt;&gt; mailCurrentEmail.Sender.Address]" DisplayName="If unique recipient(s)" sap:VirtualizedContainerService.HintSize="713,293" sap2010:WorkflowViewState.IdRef="If_14">
+                                <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill EXCEL - to help aid log" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="KillProcess_5" ProcessName="EXCEL" />
+                                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[strHTMLBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="484,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[&quot;RE: &quot; &amp; mailCurrentEmail.Subject]" To="[dictProFormaData(&quot;Return Email(s)&quot;)]">
+                                  <ui:SendOutlookMail.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                      <InArgument x:TypeArguments="x:String">[dictConfig("Search Report Path")]</InArgument>
+                                    </scg:List>
+                                  </ui:SendOutlookMail.Files>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <If.Then>
-                                    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[strHTMLBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[&quot;RE: &quot; &amp; mailCurrentEmail.Subject]" To="[dictProFormaData(&quot;Return Email(s)&quot;)]">
-                                      <ui:SendOutlookMail.Files>
-                                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                                          <InArgument x:TypeArguments="x:String">[dictConfig("Search Report Path")]</InArgument>
-                                        </scg:List>
-                                      </ui:SendOutlookMail.Files>
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                    </ui:SendOutlookMail>
-                                  </If.Then>
-                                  <If.Else>
-                                    <ui:ReplyToOutlookMailMessage TimeoutMS="{x:Null}" Body="[strHTMLBody]" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,117" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_4" MailMessage="[mailCurrentEmail]" ReplyAll="False">
-                                      <ui:ReplyToOutlookMailMessage.Files>
-                                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                                          <InArgument x:TypeArguments="x:String">[dictConfig("Search Report Path")]</InArgument>
-                                        </scg:List>
-                                      </ui:ReplyToOutlookMailMessage.Files>
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsPinned">True</x:Boolean>
-                                        </scg:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                    </ui:ReplyToOutlookMailMessage>
-                                  </If.Else>
-                                </If>
-                                <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete temp report" sap:VirtualizedContainerService.HintSize="713,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[dictConfig(&quot;Search Report Path&quot;)]" />
-                                <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[dictConfig(&quot;Email Account&quot;)]" DisplayName="Get In Progress Mail" GetAttachements="False" sap:VirtualizedContainerService.HintSize="713,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[dictConfig(&quot;Email In Progress Folder&quot;).ToString]" MarkAsRead="False" Messages="[listMail]" OnlyUnreadMessages="False" Top="1" />
-                                <ui:MoveOutlookMessage Account="[dictConfig(&quot;Email Account&quot;)]" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_3" MailFolder="[dictConfig(&quot;Email Completed Folder&quot;)]" MailMessage="[listMail(0)]">
+                                </ui:SendOutlookMail>
+                                <ui:Delete ContinueOnError="{x:Null}" DisplayName="Delete temp report" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="Delete_2" Path="[dictConfig(&quot;Search Report Path&quot;)]" />
+                                <ui:GetOutlookMailMessages Filter="{x:Null}" TimeoutMS="{x:Null}" Account="[dictConfig(&quot;Email Account&quot;)]" DisplayName="Get In Progress Mail" GetAttachements="False" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="[dictConfig(&quot;Email In Progress Folder&quot;).ToString]" MarkAsRead="False" Messages="[listMail]" OnlyUnreadMessages="False" Top="1" />
+                                <ui:MoveOutlookMessage Account="[dictConfig(&quot;Email Account&quot;)]" DisplayName="Move Outlook Mail Message" sap:VirtualizedContainerService.HintSize="484,87" sap2010:WorkflowViewState.IdRef="MoveOutlookMessage_3" MailFolder="[dictConfig(&quot;Email Completed Folder&quot;)]" MailMessage="[listMail(0)]">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -813,7 +790,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:MoveOutlookMessage>
-                                <If Condition="[dictConfig(&quot;Pausepoint 5&quot;)]" DisplayName="If Pausepoint 5" sap:VirtualizedContainerService.HintSize="713,260" sap2010:WorkflowViewState.IdRef="If_15">
+                                <If Condition="[dictConfig(&quot;Pausepoint 5&quot;)]" DisplayName="If Pausepoint 5" sap:VirtualizedContainerService.HintSize="484,260" sap2010:WorkflowViewState.IdRef="If_15">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsPinned">True</x:Boolean>

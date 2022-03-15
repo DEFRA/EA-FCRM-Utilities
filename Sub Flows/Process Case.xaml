@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2698,3059</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1068,3052</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -84,7 +84,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="714,2994" sap2010:WorkflowViewState.IdRef="Sequence_21">
+  <Sequence DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="714,2987" sap2010:WorkflowViewState.IdRef="Sequence_21">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="jobAreaData" />
       <Variable x:TypeArguments="x:Boolean" Name="booFinishSearch" />
@@ -100,7 +100,7 @@
         <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Parse lookup file" sap:VirtualizedContainerService.HintSize="672,68" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <Sequence DisplayName="Parse lookup file" sap:VirtualizedContainerService.HintSize="672,66" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="dtaAreaData" />
         <Variable x:TypeArguments="x:String" Name="strJSON" />
@@ -178,29 +178,47 @@
         </If.Then>
       </If>
     </Sequence>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="672,383" sap2010:WorkflowViewState.IdRef="ForEach`1_25" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="672,380" sap2010:WorkflowViewState.IdRef="ForEach`1_25" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="service" />
           </ActivityAction.Argument>
-          <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each provider" sap:VirtualizedContainerService.HintSize="370,248" sap2010:WorkflowViewState.IdRef="ForEach`1_24" Values="[jobAreaData(service)(&quot;Providers&quot;)]">
+          <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each provider" sap:VirtualizedContainerService.HintSize="370,246" sap2010:WorkflowViewState.IdRef="ForEach`1_24" Values="[jobAreaData(service)(&quot;Providers&quot;)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="njl:JToken">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="njl:JToken" Name="provider" />
                 </ActivityAction.Argument>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Search" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Conduct Search.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Search" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Conduct Search.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">[IN_dictConfig]</InArgument>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictProFormaData">[IN_dictProFormaData]</InArgument>
-                    <InOutArgument x:TypeArguments="njl:JToken" x:Key="IO_jobProvider">[provider]</InOutArgument>
-                    <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credBT">[IN_credBT]</InArgument>
-                    <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUD">[IN_credLSBUD]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentDirectory">[IN_strAttachmentDirectory]</InArgument>
-                    <InOutArgument x:TypeArguments="x:Boolean" x:Key="IO_booFinishSearch">[booFinishSearch]</InOutArgument>
-                    <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDMembersTable">[jobLSBUDTable]</InOutArgument>
-                    <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDNonMembersTable">[jobNonMemberTableLSBUD]</InOutArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictConfig">
+                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictConfig" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" x:Key="IN_dictProFormaData">
+                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, ui:GenericValue)" ExpressionText="IN_dictProFormaData" />
+                    </InArgument>
+                    <InOutArgument x:TypeArguments="njl:JToken" x:Key="IO_jobProvider">
+                      <mva:VisualBasicReference x:TypeArguments="njl:JToken" ExpressionText="provider" />
+                    </InOutArgument>
+                    <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credBT">
+                      <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="IN_credBT" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUD">
+                      <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="IN_credLSBUD" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentDirectory">
+                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strAttachmentDirectory" />
+                    </InArgument>
+                    <InOutArgument x:TypeArguments="x:Boolean" x:Key="IO_booFinishSearch">
+                      <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="booFinishSearch" />
+                    </InOutArgument>
+                    <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDMembersTable">
+                      <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="jobLSBUDTable" />
+                    </InOutArgument>
+                    <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_jobLSBUDNonMembersTable">
+                      <mva:VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="jobNonMemberTableLSBUD" />
+                    </InOutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -224,7 +242,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <Sequence DisplayName="Build Search Report Table" sap:VirtualizedContainerService.HintSize="672,1431" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <Sequence DisplayName="Build Search Report Table" sap:VirtualizedContainerService.HintSize="672,1429" sap2010:WorkflowViewState.IdRef="Sequence_16">
       <Sequence.Variables>
         <Variable x:TypeArguments="njl:JArray" Name="jarSearchReportTable" />
         <Variable x:TypeArguments="sd:DataTable" Name="dataSearchReport" />
@@ -235,14 +253,14 @@
           <x:Boolean x:Key="IsPinned">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BuildDataTable DataTable="[dataSearchReport]" DisplayName="Build Data Table Headers" sap:VirtualizedContainerService.HintSize="630,52" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Service&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Provider&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Location&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Outcome&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+      <ui:BuildDataTable DataTable="[dataSearchReport]" DisplayName="Build Data Table Headers" sap:VirtualizedContainerService.HintSize="630,51" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Service&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Provider&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Location&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Outcome&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Reference&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:BuildDataTable>
-      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="630,847" sap2010:WorkflowViewState.IdRef="ForEach`1_28" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Service" sap:VirtualizedContainerService.HintSize="630,846" sap2010:WorkflowViewState.IdRef="ForEach`1_28" Values="[IN_dictProFormaData(&quot;Requested Services&quot;).ToString.Split(&quot;,&quot;c)]">
         <ui:ForEach.Body>
           <ActivityAction x:TypeArguments="x:String">
             <ActivityAction.Argument>
