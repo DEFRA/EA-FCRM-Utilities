@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1069,831</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1046,831</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Conduct_Search_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="54">
@@ -400,24 +400,14 @@
                         </If>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke User Location Input" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\User Location Input.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">
-                              <Literal x:TypeArguments="x:String">Map input required</Literal>
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;&lt;h1&gt;Please interact with the map to mimic the attached image&lt;/h1&gt;&lt;br&gt;When you are happy the map is accurate, select from the buttons below.&lt;br&gt; Select 'Continue' to continue searching the remaining locations, select 'Finish Searching LSBud' if no further LSBud searches are required, or select 'Stop' if you need to halt the processing here.&lt;br&gt;&lt;br&gt;&lt;img src='/file://&quot; &amp; strImagePath &amp; &quot;' /&gt;&quot;" />
-                            </InArgument>
-                            <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booFinish">
-                              <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="IO_booFinishSearch" />
-                            </OutArgument>
-                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="IN_listLocations">
-                              <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c).ToList" />
-                            </InArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strOutputFields">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strFormOutput" />
-                            </OutArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">Map input required</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">["&lt;h1&gt;Please interact with the map to mimic the attached image&lt;/h1&gt;&lt;br&gt;When you are happy the map is accurate, select from the buttons below.&lt;br&gt; Select 'Continue' to continue searching the remaining locations, select 'Finish Searching LSBud' if no further LSBud searches are required, or select 'Stop' if you need to halt the processing here.&lt;br&gt;&lt;br&gt;&lt;img src='/file://" &amp; strImagePath &amp; "' /&gt;"]</InArgument>
+                            <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booFinish">[IO_booFinishSearch]</OutArgument>
+                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="IN_listLocations">[IN_dictProFormaData("Locations").ToString.Split(";"c).ToList]</InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strOutputFields">[strFormOutput]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <If Condition="[CBool(newtonsoft.json.JsonConvert.DeserializeObject(of JObject)(strFormOutput)(&quot;pickNextLocation&quot;))]" DisplayName="If selected specific location" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_14">
+                        <If Condition="[CBool(JsonConvert.DeserializeObject(of JObject)(strFormOutput)(&quot;pickNextLocation&quot;))]" DisplayName="If selected specific location" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_14">
                           <If.Then>
                             <Assign DisplayName="Store desired location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_54">
                               <Assign.To>
