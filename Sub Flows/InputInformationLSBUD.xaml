@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InputInformationBT" this:InputInformationBT.IN_strEnquiryType="Planned Works" this:InputInformationBT.IN_strWorkCategory="Watercourses/Canals/Drainage" this:InputInformationBT.IN_strWorkType="Dredging" this:InputInformationBT.IN_strPaperSize="A3" this:InputInformationBT.IN_strAuthorityName="The Environment Agency" this:InputInformationBT.IN_strOnBehalfOf="Utility" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:stt="clr-namespace:System.Threading.Tasks;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uca="clr-namespace:UiPath.Callout.Activity;assembly=UiPath.Callout.Activity" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InputInformationLSBUD" this:InputInformationLSBUD.IN_strEnquiryType="Planned Works" this:InputInformationLSBUD.IN_strWorkCategory="Watercourses/Canals/Drainage" this:InputInformationLSBUD.IN_strWorkType="Dredging" this:InputInformationLSBUD.IN_strPaperSize="A3" this:InputInformationLSBUD.IN_strAuthorityName="The Environment Agency" this:InputInformationLSBUD.IN_strOnBehalfOf="Utility" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:stt="clr-namespace:System.Threading.Tasks;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uca="clr-namespace:UiPath.Callout.Activity;assembly=UiPath.Callout.Activity" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_strLocationType" Type="InArgument(x:String)" />
     <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
@@ -15,12 +15,12 @@
     <x:Property sap2010:Annotation.AnnotationText="in format dd/MM/yyyy" Name="IN_strJobEndDate" Type="InArgument(x:String)" />
     <x:Property Name="IN_strOnBehalfOf" Type="InArgument(x:String)" />
   </x:Members>
-  <this:InputInformationBT.IN_strSiteContactTel>
+  <this:InputInformationLSBUD.IN_strSiteContactTel>
     <InArgument x:TypeArguments="x:String">
       <Literal x:TypeArguments="x:String" Value="" />
     </InArgument>
-  </this:InputInformationBT.IN_strSiteContactTel>
-  <sap:VirtualizedContainerService.HintSize>1069,5926</sap:VirtualizedContainerService.HintSize>
+  </this:InputInformationLSBUD.IN_strSiteContactTel>
+  <sap:VirtualizedContainerService.HintSize>802,5926</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">

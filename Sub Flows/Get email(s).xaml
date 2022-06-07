@@ -5,8 +5,9 @@
     <x:Property Name="IN_strEmailAccount" Type="InArgument(x:String)" />
     <x:Property Name="IN_strAttachmentDirectory" Type="InArgument(x:String)" />
     <x:Property Name="OUT_mailCurrentEmail" Type="OutArgument(snm:MailMessage)" />
+    <x:Property Name="OUT_ienImageAttachments" Type="OutArgument(scg:IEnumerable(x:String))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>859,1854</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2510,1854</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -106,7 +107,7 @@
       </Assign.Value>
     </Assign>
     <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments" Filter=".*\.xls*" FolderPath="[IN_strAttachmentDirectory]" sap:VirtualizedContainerService.HintSize="647,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_1" Message="[OUT_mailCurrentEmail]" />
-    <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Image Attachments" Filter=".*\.(jpeg|jpg|png)" FolderPath="[IN_strAttachmentDirectory &amp; &quot;images\&quot;]" sap:VirtualizedContainerService.HintSize="647,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[OUT_mailCurrentEmail]" />
+    <ui:SaveMailAttachments Attachments="[OUT_ienImageAttachments]" DisplayName="Save Image Attachments" Filter=".*\.(jpeg|jpg|png)" FolderPath="[IN_strAttachmentDirectory &amp; &quot;images\&quot;]" sap:VirtualizedContainerService.HintSize="647,87" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[OUT_mailCurrentEmail]" />
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File" sap:VirtualizedContainerService.HintSize="647,496" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(IN_strAttachmentDirectory)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
