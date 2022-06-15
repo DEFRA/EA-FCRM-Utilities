@@ -11,11 +11,12 @@
     <x:Property Name="IO_jobLSBUDNonMembersTable" Type="InOutArgument(njl:JObject)" />
     <x:Property Name="IO_booSEEmailSent" Type="InOutArgument(x:Boolean)" />
     <x:Property Name="IN_ienImageAttachments" Type="InArgument(scg:IEnumerable(x:String))" />
+    <x:Property Name="IN_credDIGDAT" Type="InArgument(sn:NetworkCredential)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2510,1191</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1331,1189</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Conduct_Search_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -99,7 +100,7 @@
     </Flowchart.StartNode>
     <FlowSwitch x:TypeArguments="x:String" x:Name="__ReferenceID8" DisplayName="Search" Expression="[IO_jobProvider(&quot;Search&quot;).ToString]" sap:VirtualizedContainerService.HintSize="70,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
       <FlowSwitch.Default>
-        <FlowStep x:Name="__ReferenceID3">
+        <FlowStep x:Name="__ReferenceID2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">380,226.04</av:Point>
@@ -259,14 +260,14 @@
           <av:Point x:Key="ShapeLocation">605,127.5</av:Point>
           <av:Size x:Key="ShapeSize">70,87</av:Size>
           <av:PointCollection x:Key="Default">605,192.75 480,192.75 480,226.04</av:PointCollection>
-          <av:PointCollection x:Key="LSBUDConnector">675,192.75 810,192.75 810,227</av:PointCollection>
+          <av:PointCollection x:Key="LSBUDConnector">675,192.75 800,192.75 800,227</av:PointCollection>
           <av:PointCollection x:Key="Not SupportedConnector">640,214.5 640,327</av:PointCollection>
           <x:String x:Key="DefaultCaseDisplayName">BT</x:String>
           <av:PointCollection x:Key="DIGDATConnector">675,149.25 1030,149.25 1030,227</av:PointCollection>
           <av:PointCollection x:Key="SEConnector">605,149.25 220,149.25 220,186.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <FlowStep x:Key="Not Supported" x:Name="__ReferenceID2">
+      <FlowStep x:Key="Not Supported" x:Name="__ReferenceID1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">540,327</av:Point>
@@ -351,7 +352,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <FlowDecision.True>
-              <FlowStep x:Name="__ReferenceID4">
+              <FlowStep x:Name="__ReferenceID3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <av:Point x:Key="ShapeLocation">370,579</av:Point>
@@ -373,378 +374,7 @@
           </FlowDecision>
         </FlowStep.Next>
       </FlowStep>
-      <FlowStep x:Key="LSBUD" x:Name="__ReferenceID1">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">710,227</av:Point>
-            <av:Size x:Key="ShapeSize">200,66</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">810,293 810,446.5 664.5,446.5 664.5,476.5</av:PointCollection>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
-          <Sequence.Variables>
-            <Variable x:TypeArguments="x:Boolean" Name="booLSBUDopen" />
-            <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
-            <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDNonMembersTable" />
-            <Variable x:TypeArguments="njl:JArray" Name="jarLSBUDMembersArray" />
-          </Sequence.Variables>
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke check website open" sap:VirtualizedContainerService.HintSize="948,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows/Check Site Open.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="IN_strURL">[IN_dictConfig("LSBUD URL").Replace("Account/Login", "*")]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="IN_strProcessName">iexplore.exe</InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booSiteOpen">[booLSBUDopen]</OutArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-          <If Condition="[booLSBUDopen]" DisplayName="If already open" sap:VirtualizedContainerService.HintSize="948,260" sap2010:WorkflowViewState.IdRef="If_2">
-            <If.Else>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Open LSBUD Website workflow" sap:VirtualizedContainerService.HintSize="355,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Open LSBUD Website &amp; Log In.xaml">
-                <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUDLogin">[IN_credLSBUD]</InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="IN_strLSBUDURL">[IN_dictConfig("LSBUD URL")]</InArgument>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">[IN_dictConfig("Retry Number")]</InArgument>
-                </ui:InvokeWorkflowFile.Arguments>
-              </ui:InvokeWorkflowFile>
-            </If.Else>
-          </If>
-          <Assign DisplayName="Create locations key in object" sap:VirtualizedContainerService.HintSize="948,60" sap2010:WorkflowViewState.IdRef="Assign_9">
-            <Assign.To>
-              <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign DisplayName="blank location" sap:VirtualizedContainerService.HintSize="948,60" sap2010:WorkflowViewState.IdRef="Assign_56">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </Assign.Value>
-          </Assign>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="948,3517" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
-            <ui:ForEach.Body>
-              <ActivityAction x:TypeArguments="x:String">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:String" Name="location" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Search and get ref" sap:VirtualizedContainerService.HintSize="912,3383" sap2010:WorkflowViewState.IdRef="Sequence_8">
-                  <Sequence.Variables>
-                    <Variable x:TypeArguments="x:String" Name="dtaTable" />
-                  </Sequence.Variables>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                  <Assign DisplayName="Create location key in object" sap:VirtualizedContainerService.HintSize="870,60" sap2010:WorkflowViewState.IdRef="Assign_21">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")(location)]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                  <If sap2010:Annotation.AnnotationText="Either the user has selected to finish the search, or has selected a specific next location" Condition="[(IO_booFinishSearch) OR (strNextLocation.Trim &lt;&gt; &quot;&quot; AND strNextLocation.Trim &lt;&gt; location)]" DisplayName="If not required" sap:VirtualizedContainerService.HintSize="870,2991" sap2010:WorkflowViewState.IdRef="If_6">
-                    <sap:WorkflowViewStateService.ViewState>
-                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                      </scg:Dictionary>
-                    </sap:WorkflowViewStateService.ViewState>
-                    <If.Else>
-                      <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="725,2812" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                        <Sequence.Variables>
-                          <Variable x:TypeArguments="njl:JArray" Name="jarLSBUDNonMembersArray" />
-                          <Variable x:TypeArguments="x:String" Name="strImagePath" />
-                          <Variable x:TypeArguments="x:String" Name="strFormOutput" />
-                        </Sequence.Variables>
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InputInformationLSBUDworkflow" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" LogEntry="No" LogExit="No" UnSafe="True" WorkflowFileName="Sub Flows\InputInformationLSBUD.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationType">[IN_dictProFormaData("Location Format")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationToSearch">[location]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strEnquiryType">Planned Works</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkCategory">Watercourses/Canals/Drainage</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkType">[IN_dictProFormaData("Description")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strScheme">[IN_dictProFormaData("Scheme Name")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPaperSize">A3</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPlanScale">[IN_dictProFormaData("Plan Scale")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strAuthorityName">The Environment Agency</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSiteContactName">[IN_dictProFormaData("Requestor's Name")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSiteContactTel">[IN_dictProFormaData("Requestor Phone No.")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strJobStartDate">[Convert.ToDateTime(IN_dictProFormaData("Proposed Start Date").ToString).ToString("dd/MM/yyyy")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strJobEndDate">[Convert.ToDateTime(IN_dictProFormaData("Proposed End Date").ToString).ToString("dd/MM/yyyy")]</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strOnBehalfOf">Utility</InArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
-                        <If Condition="[Directory.GetFiles(IN_strAttachmentDirectory &amp; &quot;images\&quot;).Count &gt; 0]" DisplayName="If Image given" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_13">
-                          <If.Then>
-                            <Assign DisplayName="Set image path - found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_52">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[strImagePath]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[Directory.GetFiles(IN_strAttachmentDirectory &amp; "images\")(0)]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </If.Then>
-                          <If.Else>
-                            <Assign DisplayName="Set image path - not found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_53">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[strImagePath]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">["../Documents/broken-1.png"]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </If.Else>
-                        </If>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke User Location Input" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\User Location Input.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">Map input required</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">["&lt;h1&gt;Please interact with the map to mimic the attached image&lt;/h1&gt;&lt;br&gt;When you are happy the map is accurate, select from the buttons below.&lt;br&gt; Select 'Continue' to continue searching the remaining locations, select 'Finish Searching LSBud' if no further LSBud searches are required, or select 'Stop' if you need to halt the processing here.&lt;br&gt;&lt;br&gt;&lt;img src='/file://" &amp; strImagePath &amp; "' /&gt;"]</InArgument>
-                            <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booFinish">[IO_booFinishSearch]</OutArgument>
-                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="IN_listLocations">[IN_dictProFormaData("Locations").ToString.Split(";"c).ToList]</InArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strOutputFields">[strFormOutput]</OutArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
-                        <If Condition="[CBool(JsonConvert.DeserializeObject(of JObject)(strFormOutput)(&quot;pickNextLocation&quot;))]" DisplayName="If selected specific location" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_14">
-                          <If.Then>
-                            <Assign DisplayName="Store desired location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_54">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[Regex.Replace(newtonsoft.json.JsonConvert.DeserializeObject(of JObject)(strFormOutput)("selectNextLocation").toString, "\d:", "").Trim]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </If.Then>
-                          <If.Else>
-                            <Assign DisplayName="blank location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_55">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">
-                                  <Literal x:TypeArguments="x:String" Value="" />
-                                </InArgument>
-                              </Assign.Value>
-                            </Assign>
-                          </If.Else>
-                        </If>
-                        <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Description" sap:VirtualizedContainerService.HintSize="683,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[IN_dictProFormaData(&quot;Description&quot;)]">
-                          <ui:SetValue.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="78f1493746c1b055728f0644f4474642" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.AdditionalNotes' tag='TEXTAREA' /&gt;">
-                              <ui:Target.TimeoutMS>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:Target.TimeoutMS>
-                              <ui:Target.WaitForReady>
-                                <InArgument x:TypeArguments="ui:WaitForReady" />
-                              </ui:Target.WaitForReady>
-                            </ui:Target>
-                          </ui:SetValue.Target>
-                        </ui:SetValue>
-                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="683,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                          <ui:Click.CursorPosition>
-                            <ui:CursorPosition Position="Center">
-                              <ui:CursorPosition.OffsetX>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:CursorPosition.OffsetX>
-                              <ui:CursorPosition.OffsetY>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:CursorPosition.OffsetY>
-                            </ui:CursorPosition>
-                          </ui:Click.CursorPosition>
-                          <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82381b3d-b850-4768-8b1c-f001826dbf35" InformativeScreenshot="b5d7474def46e16dd21bfe784e066d9c" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='&amp;gt;Submit' parentid='EnquiryLocationPanel' tag='BUTTON' /&gt;" WaitForReady="COMPLETE">
-                              <ui:Target.TimeoutMS>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:Target.TimeoutMS>
-                            </ui:Target>
-                          </ui:Click.Target>
-                        </ui:Click>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Reference Number" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_20" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\GetReferenceNumber - LSBUD.xaml">
-                          <ui:InvokeWorkflowFile.Arguments>
-                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strReference">[strReferenceNumber]</OutArgument>
-                            <OutArgument x:TypeArguments="sd:DataTable" x:Key="OUT_dataLSBUDMembers">[dataLSBUDMembersTable]</OutArgument>
-                            <OutArgument x:TypeArguments="sd:DataTable" x:Key="OUT_dataLSBUDNonMembers">[dataLSBUDNonMembersTable]</OutArgument>
-                          </ui:InvokeWorkflowFile.Arguments>
-                        </ui:InvokeWorkflowFile>
-                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Home'" sap:VirtualizedContainerService.HintSize="683,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT">
-                          <ui:Click.CursorPosition>
-                            <ui:CursorPosition Position="Center">
-                              <ui:CursorPosition.OffsetX>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:CursorPosition.OffsetX>
-                              <ui:CursorPosition.OffsetY>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:CursorPosition.OffsetY>
-                            </ui:CursorPosition>
-                          </ui:Click.CursorPosition>
-                          <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82381b3d-b850-4768-8b1c-f001826dbf35" InformativeScreenshot="90830031383dec5435aef31d8be971ce" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='*Home' parentid='HeadContainer' tag='DIV' class='menuIcn Home' /&gt;" WaitForReady="COMPLETE">
-                              <ui:Target.TimeoutMS>
-                                <InArgument x:TypeArguments="x:Int32" />
-                              </ui:Target.TimeoutMS>
-                            </ui:Target>
-                          </ui:Click.Target>
-                        </ui:Click>
-                        <Assign DisplayName="Store datatable as JArray" sap:VirtualizedContainerService.HintSize="683,60" sap2010:WorkflowViewState.IdRef="Assign_39">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="njl:JArray">[jarLSBUDMembersArray]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="njl:JArray">[JsonConvert.DeserializeObject(of JArray)(JsonConvert.SerializeObject(dataLSBUDMembersTable))]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <Assign DisplayName="Store datatable as JArray" sap:VirtualizedContainerService.HintSize="683,60" sap2010:WorkflowViewState.IdRef="Assign_44">
-                          <Assign.To>
-                            <OutArgument x:TypeArguments="njl:JArray">[jarLSBUDNonMembersArray]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="njl:JArray">[JsonConvert.DeserializeObject(of JArray)(JsonConvert.SerializeObject(dataLSBUDNonMembersTable))]</InArgument>
-                          </Assign.Value>
-                        </Assign>
-                        <If sap2010:Annotation.AnnotationText="Members serialized table" Condition="[IO_jobLSBUDMembersTable.ContainsKey(&quot;Table&quot;)]" DisplayName="If Already setup" sap:VirtualizedContainerService.HintSize="683,531" sap2010:WorkflowViewState.IdRef="If_11">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim tempArray As New JArray &#xA;tempArray = JArray.Parse(JSONConvert.SerializeObject(IO_JObject(&quot;Table&quot;)))&#xA;tempArray.Merge(IN_JArrayAdd)&#xA;IO_JObject(&quot;Table&quot;) = tempArray" DisplayName="Invoke code - add to JArray" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
-                              <ui:InvokeCode.Arguments>
-                                <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_JObject">[IO_jobLSBUDMembersTable]</InOutArgument>
-                                <InArgument x:TypeArguments="njl:JArray" x:Key="IN_JArrayAdd">[jarLSBUDMembersArray]</InArgument>
-                              </ui:InvokeCode.Arguments>
-                            </ui:InvokeCode>
-                          </If.Then>
-                          <If.Else>
-                            <Sequence DisplayName="Set it up" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_17">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Init LSBUD Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_45">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="njl:JObject">[IO_jobLSBUDMembersTable]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="njl:JObject">[new JObject]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_46">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDMembersTable("Name")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="njl:JToken">["LSBUD Members"]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <Assign DisplayName="Init Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_47">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDMembersTable("Table")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="njl:JToken">[jarLSBUDMembersArray]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                            </Sequence>
-                          </If.Else>
-                        </If>
-                        <If sap2010:Annotation.AnnotationText="Non-members serialized table" Condition="[IO_jobLSBUDNonMembersTable.ContainsKey(&quot;Table&quot;)]" DisplayName="If Already setup" sap:VirtualizedContainerService.HintSize="683,531" sap2010:WorkflowViewState.IdRef="If_12">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <If.Then>
-                            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim tempArray As New JArray &#xA;tempArray = JArray.Parse(JSONConvert.SerializeObject(IO_JObject(&quot;Table&quot;)))&#xA;tempArray.Merge(IN_JArrayAdd)&#xA;IO_JObject(&quot;Table&quot;) = tempArray" DisplayName="Invoke code - add to JArray" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_4">
-                              <ui:InvokeCode.Arguments>
-                                <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_JObject">[IO_jobLSBUDNonMembersTable]</InOutArgument>
-                                <InArgument x:TypeArguments="njl:JArray" x:Key="IN_JArrayAdd">[jarLSBUDNonMembersArray]</InArgument>
-                              </ui:InvokeCode.Arguments>
-                            </ui:InvokeCode>
-                          </If.Then>
-                          <If.Else>
-                            <Sequence DisplayName="Set it up" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_18">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <Assign DisplayName="Init LSBUD Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_48">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="njl:JObject">[IO_jobLSBUDNonMembersTable]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="njl:JObject">[new JObject]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_49">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDNonMembersTable("Name")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="njl:JToken">["LSBUD Non-Members"]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                              <Assign DisplayName="Init Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_50">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDNonMembersTable("Table")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="njl:JArray">[JsonConvert.DeserializeObject(of JArray)(JsonConvert.SerializeObject(dataLSBUDNonMembersTable))]</InArgument>
-                                </Assign.Value>
-                              </Assign>
-                            </Sequence>
-                          </If.Else>
-                        </If>
-                      </Sequence>
-                    </If.Else>
-                  </If>
-                  <Assign DisplayName="Store in object" sap:VirtualizedContainerService.HintSize="870,60" sap2010:WorkflowViewState.IdRef="Assign_22">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")(location)("Outcome")]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="njl:JToken">["Success"]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                  <Assign DisplayName="Store in object" sap:VirtualizedContainerService.HintSize="870,60" sap2010:WorkflowViewState.IdRef="Assign_23">
-                    <Assign.To>
-                      <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")(location)("Reference")]</OutArgument>
-                    </Assign.To>
-                    <Assign.Value>
-                      <InArgument x:TypeArguments="njl:JToken">[strReferenceNumber]</InArgument>
-                    </Assign.Value>
-                  </Assign>
-                </Sequence>
-              </ActivityAction>
-            </ui:ForEach.Body>
-          </ui:ForEach>
-        </Sequence>
-        <FlowStep.Next>
-          <x:Reference>__ReferenceID0</x:Reference>
-        </FlowStep.Next>
-      </FlowStep>
-      <FlowStep x:Key="DIGDAT" x:Name="__ReferenceID5">
+      <FlowStep x:Key="DIGDAT" x:Name="__ReferenceID4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">930,227</av:Point>
@@ -752,7 +382,7 @@
             <av:PointCollection x:Key="ConnectorLocation">1030,293 1030,446.5 664.5,446.5 664.5,476.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Search DIGDAT" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_23">
+        <Sequence DisplayName="Search DIGDAT" sap:VirtualizedContainerService.HintSize="547,1634" sap2010:WorkflowViewState.IdRef="Sequence_23">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="booDIGDATOpen" />
             <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
@@ -775,9 +405,15 @@
             <If.Else>
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Open DIGTDAT Website workflow" sap:VirtualizedContainerService.HintSize="360,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Open DIGDAT Website &amp; Log In.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">[IN_dictConfig("Retry Number")]</InArgument>
-                  <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credDIGDATLogin" />
-                  <InArgument x:TypeArguments="x:String" x:Key="IN_strDIGDATURL" />
+                  <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">
+                    <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="IN_dictConfig(&quot;Retry Number&quot;)" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credDIGDATLogin">
+                    <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="IN_credDIGDAT" />
+                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="IN_strDIGDATURL">
+                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;DIGDAT URL&quot;)" />
+                  </InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </If.Else>
@@ -825,11 +461,21 @@
                   </Assign>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InputInformationDIGDAT workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" LogEntry="No" LogExit="No" UnSafe="True" WorkflowFileName="Sub Flows\InputInformationDIGDAT.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationType">[IN_dictProFormaData("Location Format")]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationToSearch">[location]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="IN_strScheme">[IN_dictProFormaData("Scheme Name")]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="IN_strPaperSize">A3</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="IN_strAuthorityName">The Environment Agency</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationType">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictProFormaData(&quot;Location Format&quot;)" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationToSearch">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="location" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="IN_strScheme">
+                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictProFormaData(&quot;Scheme Name&quot;)" />
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="IN_strPaperSize">
+                        <Literal x:TypeArguments="x:String">A3</Literal>
+                      </InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="IN_strAuthorityName">
+                        <Literal x:TypeArguments="x:String">The Environment Agency</Literal>
+                      </InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Save Attachment DIGDAT" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Save DIGDAT Map.xaml">
@@ -870,10 +516,7 @@
           <x:Reference>__ReferenceID0</x:Reference>
         </FlowStep.Next>
       </FlowStep>
-      <FlowDecision x:Key="SE" x:Name="__ReferenceID7" DisplayName="Email issued to SE?" sap:VirtualizedContainerService.HintSize="105,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
-        <FlowDecision.Condition>
-          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="IO_booSEEmailSent" />
-        </FlowDecision.Condition>
+      <FlowDecision x:Key="SE" x:Name="__ReferenceID6" Condition="[IO_booSEEmailSent]" DisplayName="Email issued to SE?" sap:VirtualizedContainerService.HintSize="105,87" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -883,7 +526,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <FlowDecision.False>
-          <FlowStep x:Name="__ReferenceID6">
+          <FlowStep x:Name="__ReferenceID5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <av:Point x:Key="ShapeLocation">230,427</av:Point>
@@ -891,7 +534,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">430,460 615.5,460 615.5,476.5</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Email SE" sap:VirtualizedContainerService.HintSize="486,868" sap2010:WorkflowViewState.IdRef="Sequence_24">
+            <Sequence DisplayName="Email SE" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_24">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="booDIGDATOpen" />
                 <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
@@ -953,11 +596,382 @@
           </FlowStep>
         </FlowDecision.False>
       </FlowDecision>
+      <FlowStep x:Key="LSBUD" x:Name="__ReferenceID7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">700,227</av:Point>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">800,293 800,446.5 664.5,446.5 664.5,476.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_29">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Boolean" Name="booLSBUDopen" />
+            <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
+            <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDNonMembersTable" />
+            <Variable x:TypeArguments="njl:JArray" Name="jarLSBUDMembersArray" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke check website open" sap:VirtualizedContainerService.HintSize="948,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows/Check Site Open.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="IN_strURL">[IN_dictConfig("LSBUD URL").Replace("Account/Login", "*")]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="IN_strProcessName">msedge.exe</InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booSiteOpen">[booLSBUDopen]</OutArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <If Condition="[booLSBUDopen]" DisplayName="If already open" sap:VirtualizedContainerService.HintSize="948,260" sap2010:WorkflowViewState.IdRef="If_16">
+            <If.Else>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Open LSBUD Website workflow" sap:VirtualizedContainerService.HintSize="355,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Open LSBUD Website &amp; Log In.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credLSBUDLogin">[IN_credLSBUD]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="IN_strLSBUDURL">[IN_dictConfig("LSBUD URL")]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="IN_intRetryNumber">[IN_dictConfig("Retry Number")]</InArgument>
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+            </If.Else>
+          </If>
+          <Assign DisplayName="Create locations key in object" sap:VirtualizedContainerService.HintSize="948,60" sap2010:WorkflowViewState.IdRef="Assign_78">
+            <Assign.To>
+              <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="blank location" sap:VirtualizedContainerService.HintSize="948,60" sap2010:WorkflowViewState.IdRef="Assign_79">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String" Value="" />
+              </InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="948,3517" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="location" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Search and get ref" sap:VirtualizedContainerService.HintSize="912,3383" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="dtaTable" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Create location key in object" sap:VirtualizedContainerService.HintSize="870,60" sap2010:WorkflowViewState.IdRef="Assign_80">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")(location)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If sap2010:Annotation.AnnotationText="Either the user has selected to finish the search, or has selected a specific next location" Condition="[(IO_booFinishSearch) OR (strNextLocation.Trim &lt;&gt; &quot;&quot; AND strNextLocation.Trim &lt;&gt; location)]" DisplayName="If not required" sap:VirtualizedContainerService.HintSize="870,2991" sap2010:WorkflowViewState.IdRef="If_21">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Else>
+                      <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="725,2812" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="njl:JArray" Name="jarLSBUDNonMembersArray" />
+                          <Variable x:TypeArguments="x:String" Name="strImagePath" />
+                          <Variable x:TypeArguments="x:String" Name="strFormOutput" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InputInformationLSBUDworkflow" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" LogEntry="No" LogExit="No" UnSafe="True" WorkflowFileName="Sub Flows\InputInformationLSBUD.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationType">[IN_dictProFormaData("Location Format")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationToSearch">[location]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strEnquiryType">Planned Works</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkCategory">Watercourses/Canals/Drainage</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strWorkType">[IN_dictProFormaData("Description")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strScheme">[IN_dictProFormaData("Scheme Name")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPaperSize">A3</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPlanScale">[IN_dictProFormaData("Plan Scale")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strAuthorityName">The Environment Agency</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSiteContactName">[IN_dictProFormaData("Requestor's Name")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSiteContactTel">[IN_dictProFormaData("Requestor Phone No.")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strJobStartDate">[Convert.ToDateTime(IN_dictProFormaData("Proposed Start Date").ToString).ToString("dd/MM/yyyy")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strJobEndDate">[Convert.ToDateTime(IN_dictProFormaData("Proposed End Date").ToString).ToString("dd/MM/yyyy")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strOnBehalfOf">Utility</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <If Condition="[Directory.GetFiles(IN_strAttachmentDirectory &amp; &quot;images\&quot;).Count &gt; 0]" DisplayName="If Image given" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_17">
+                          <If.Then>
+                            <Assign DisplayName="Set image path - found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_81">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strImagePath]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[Directory.GetFiles(IN_strAttachmentDirectory &amp; "images\")(0)]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                          <If.Else>
+                            <Assign DisplayName="Set image path - not found" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_82">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strImagePath]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">["../Documents/broken-1.png"]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke User Location Input" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\User Location Input.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormTitle">Map input required</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strFormBody">["&lt;h1&gt;Please interact with the map to mimic the attached image&lt;/h1&gt;&lt;br&gt;When you are happy the map is accurate, select from the buttons below.&lt;br&gt; Select 'Continue' to continue searching the remaining locations, select 'Finish Searching LSBud' if no further LSBud searches are required, or select 'Stop' if you need to halt the processing here.&lt;br&gt;&lt;br&gt;&lt;img src='/file://" &amp; strImagePath &amp; "' /&gt;"]</InArgument>
+                            <OutArgument x:TypeArguments="x:Boolean" x:Key="OUT_booFinish">[IO_booFinishSearch]</OutArgument>
+                            <InArgument x:TypeArguments="scg:List(x:String)" x:Key="IN_listLocations">[IN_dictProFormaData("Locations").ToString.Split(";"c).ToList]</InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strOutputFields">[strFormOutput]</OutArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <If Condition="[CBool(JsonConvert.DeserializeObject(of JObject)(strFormOutput)(&quot;pickNextLocation&quot;))]" DisplayName="If selected specific location" sap:VirtualizedContainerService.HintSize="683,208" sap2010:WorkflowViewState.IdRef="If_18">
+                          <If.Then>
+                            <Assign DisplayName="Store desired location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_83">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">[Regex.Replace(newtonsoft.json.JsonConvert.DeserializeObject(of JObject)(strFormOutput)("selectNextLocation").toString, "\d:", "").Trim]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Then>
+                          <If.Else>
+                            <Assign DisplayName="blank location" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_84">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:String">[strNextLocation]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </If.Else>
+                        </If>
+                        <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Description" sap:VirtualizedContainerService.HintSize="683,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[IN_dictProFormaData(&quot;Description&quot;)]">
+                          <ui:SetValue.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="78f1493746c1b055728f0644f4474642" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.AdditionalNotes' tag='TEXTAREA' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:SetValue.Target>
+                        </ui:SetValue>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Submit'" sap:VirtualizedContainerService.HintSize="683,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82381b3d-b850-4768-8b1c-f001826dbf35" InformativeScreenshot="b5d7474def46e16dd21bfe784e066d9c" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='&amp;gt;Submit' parentid='EnquiryLocationPanel' tag='BUTTON' /&gt;" WaitForReady="COMPLETE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Get Reference Number" sap:VirtualizedContainerService.HintSize="683,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\GetReferenceNumber - LSBUD.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <OutArgument x:TypeArguments="x:String" x:Key="OUT_strReference">[strReferenceNumber]</OutArgument>
+                            <OutArgument x:TypeArguments="sd:DataTable" x:Key="OUT_dataLSBUDMembers">[dataLSBUDMembersTable]</OutArgument>
+                            <OutArgument x:TypeArguments="sd:DataTable" x:Key="OUT_dataLSBUDNonMembers">[dataLSBUDNonMembersTable]</OutArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Home'" sap:VirtualizedContainerService.HintSize="683,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="82381b3d-b850-4768-8b1c-f001826dbf35" InformativeScreenshot="90830031383dec5435aef31d8be971ce" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='HeadContainer' tag='DIV' class='menuIcn Home' /&gt;" WaitForReady="COMPLETE">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <Assign DisplayName="Store datatable as JArray" sap:VirtualizedContainerService.HintSize="683,60" sap2010:WorkflowViewState.IdRef="Assign_85">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="njl:JArray">[jarLSBUDMembersArray]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="njl:JArray">[JsonConvert.DeserializeObject(of JArray)(JsonConvert.SerializeObject(dataLSBUDMembersTable))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="Store datatable as JArray" sap:VirtualizedContainerService.HintSize="683,60" sap2010:WorkflowViewState.IdRef="Assign_86">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="njl:JArray">[jarLSBUDNonMembersArray]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="njl:JArray">[JsonConvert.DeserializeObject(of JArray)(JsonConvert.SerializeObject(dataLSBUDNonMembersTable))]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <If sap2010:Annotation.AnnotationText="Members serialized table" Condition="[IO_jobLSBUDMembersTable.ContainsKey(&quot;Table&quot;)]" DisplayName="If Already setup" sap:VirtualizedContainerService.HintSize="683,531" sap2010:WorkflowViewState.IdRef="If_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim tempArray As New JArray &#xA;tempArray = JArray.Parse(JSONConvert.SerializeObject(IO_JObject(&quot;Table&quot;)))&#xA;tempArray.Merge(IN_JArrayAdd)&#xA;IO_JObject(&quot;Table&quot;) = tempArray" DisplayName="Invoke code - add to JArray" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_5">
+                              <ui:InvokeCode.Arguments>
+                                <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_JObject">[IO_jobLSBUDMembersTable]</InOutArgument>
+                                <InArgument x:TypeArguments="njl:JArray" x:Key="IN_JArrayAdd">[jarLSBUDMembersArray]</InArgument>
+                              </ui:InvokeCode.Arguments>
+                            </ui:InvokeCode>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Set it up" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Init LSBUD Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_87">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="njl:JObject">[IO_jobLSBUDMembersTable]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="njl:JObject">[new JObject]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_88">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDMembersTable("Name")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="njl:JToken">["LSBUD Members"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="Init Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_89">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDMembersTable("Table")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="njl:JToken">[jarLSBUDMembersArray]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                        <If sap2010:Annotation.AnnotationText="Non-members serialized table" Condition="[IO_jobLSBUDNonMembersTable.ContainsKey(&quot;Table&quot;)]" DisplayName="If Already setup" sap:VirtualizedContainerService.HintSize="683,531" sap2010:WorkflowViewState.IdRef="If_20">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim tempArray As New JArray &#xA;tempArray = JArray.Parse(JSONConvert.SerializeObject(IO_JObject(&quot;Table&quot;)))&#xA;tempArray.Merge(IN_JArrayAdd)&#xA;IO_JObject(&quot;Table&quot;) = tempArray" DisplayName="Invoke code - add to JArray" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_6">
+                              <ui:InvokeCode.Arguments>
+                                <InOutArgument x:TypeArguments="njl:JObject" x:Key="IO_JObject">[IO_jobLSBUDNonMembersTable]</InOutArgument>
+                                <InArgument x:TypeArguments="njl:JArray" x:Key="IN_JArrayAdd">[jarLSBUDNonMembersArray]</InArgument>
+                              </ui:InvokeCode.Arguments>
+                            </ui:InvokeCode>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Set it up" sap:VirtualizedContainerService.HintSize="304,352" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign DisplayName="Init LSBUD Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_90">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="njl:JObject">[IO_jobLSBUDNonMembersTable]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="njl:JObject">[new JObject]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="Set Name" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_91">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDNonMembersTable("Name")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="njl:JToken">["LSBUD Non-Members"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign DisplayName="Init Table" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_92">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="njl:JToken">[IO_jobLSBUDNonMembersTable("Table")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="njl:JArray">[JsonConvert.DeserializeObject(of JArray)(JsonConvert.SerializeObject(dataLSBUDNonMembersTable))]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Assign DisplayName="Store in object" sap:VirtualizedContainerService.HintSize="870,60" sap2010:WorkflowViewState.IdRef="Assign_93">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")(location)("Outcome")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="njl:JToken">["Success"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="Store in object" sap:VirtualizedContainerService.HintSize="870,60" sap2010:WorkflowViewState.IdRef="Assign_94">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="njl:JToken">[IO_jobProvider("Locations")(location)("Reference")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="njl:JToken">[strReferenceNumber]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
+        </Sequence>
+        <FlowStep.Next>
+          <x:Reference>__ReferenceID0</x:Reference>
+        </FlowStep.Next>
+      </FlowStep>
     </FlowSwitch>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
     <x:Reference>__ReferenceID5</x:Reference>
     <x:Reference>__ReferenceID6</x:Reference>

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="EA_Utilities_Request" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="2510,1191" sap2010:WorkflowViewState.IdRef="ReFramework_Example_1" ImplementationVersion="0.1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sn="clr-namespace:System.Net;assembly=System" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="EA_Utilities_Request" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="991,1189" sap2010:WorkflowViewState.IdRef="ReFramework_Example_1" ImplementationVersion="0.1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:r="clr-namespace:Reusable_Components;assembly=Reusable Components" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sn="clr-namespace:System.Net;assembly=System" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ufa="clr-namespace:UiPath.Form.Activities;assembly=UiPath.Form.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -81,9 +81,9 @@
         <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <State x:Name="__ReferenceID2" DisplayName="Initial State" sap:VirtualizedContainerService.HintSize="158,87" sap2010:WorkflowViewState.IdRef="State_1">
+    <State x:Name="__ReferenceID2" DisplayName="Initial State" sap:VirtualizedContainerService.HintSize="779,1895" sap2010:WorkflowViewState.IdRef="State_1">
       <State.Entry>
-        <Sequence DisplayName="Start Process PopUp" sap:VirtualizedContainerService.HintSize="733,1446" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence DisplayName="Start Process PopUp" sap:VirtualizedContainerService.HintSize="733,1508" sap2010:WorkflowViewState.IdRef="Sequence_1">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strStartFormData" />
             <Variable x:TypeArguments="x:String" Name="strRunType" />
@@ -189,14 +189,14 @@
           </TryCatch>
           <ui:LogMessage DisplayName="Log Start" sap:VirtualizedContainerService.HintSize="691,51" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Starting Workflow - Main&quot;]" />
           <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process - EXCEL" sap:VirtualizedContainerService.HintSize="691,22" sap2010:WorkflowViewState.IdRef="KillProcess_9" ProcessName="EXCEL" />
-          <If Condition="[strRunType = &quot;Attended&quot;]" DisplayName="If Attended" sap:VirtualizedContainerService.HintSize="691,550" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[strRunType = &quot;Attended&quot;]" DisplayName="If Attended" sap:VirtualizedContainerService.HintSize="691,612" sap2010:WorkflowViewState.IdRef="If_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsPinned">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence DisplayName="Start form and get local credentials" sap:VirtualizedContainerService.HintSize="342,402" sap2010:WorkflowViewState.IdRef="Sequence_33">
+              <Sequence DisplayName="Start form and get local credentials" sap:VirtualizedContainerService.HintSize="342,464" sap2010:WorkflowViewState.IdRef="Sequence_33">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -227,6 +227,7 @@
                 </ufa:FormActivity>
                 <r:Get_Credential DisplayName="Get Credential BT" sap:VirtualizedContainerService.HintSize="300,22" IN_strCredentialName="RobotBT" IN_strRequestMessage="Please provide the login information for BT" IN_strRequestTitle="Login details required." sap2010:WorkflowViewState.IdRef="Get_Credential_1" OUT_credNetworkCredential="[credBT]" />
                 <r:Get_Credential DisplayName="Get Credential LSBUD" sap:VirtualizedContainerService.HintSize="300,22" IN_strCredentialName="RobotLSBUD" IN_strRequestMessage="Please provide the login information for LSBUD" IN_strRequestTitle="Login details required." sap2010:WorkflowViewState.IdRef="Get_Credential_2" OUT_credNetworkCredential="[credLSBUD]" />
+                <r:Get_Credential DisplayName="Get Credential DIGDAT" sap:VirtualizedContainerService.HintSize="300,22" IN_strCredentialName="robotDIGDAT" IN_strRequestMessage="Please provide the login information for DIGDAT" IN_strRequestTitle="Login details required." sap2010:WorkflowViewState.IdRef="Get_Credential_3" OUT_credNetworkCredential="[credDIGDAT]" />
               </Sequence>
             </If.Then>
             <If.Else>
@@ -288,14 +289,14 @@
           <Transition.To>
             <State x:Name="__ReferenceID0" DisplayName="End Log" sap:VirtualizedContainerService.HintSize="134,94" sap2010:WorkflowViewState.IdRef="State_3" IsFinal="True">
               <State.Entry>
-                <Sequence DisplayName="End actions" sap:VirtualizedContainerService.HintSize="526,889" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                <Sequence DisplayName="End actions" sap:VirtualizedContainerService.HintSize="526,951" sap2010:WorkflowViewState.IdRef="Sequence_21">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Log out sites &amp; Kill IE" sap:VirtualizedContainerService.HintSize="484,418" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                  <Sequence DisplayName="Log out sites &amp; Kill IE" sap:VirtualizedContainerService.HintSize="484,480" sap2010:WorkflowViewState.IdRef="Sequence_32">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -323,6 +324,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeWorkflowFile>
                     <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="KillProcess_8" ProcessName="iexplore" />
+                    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="KillProcess_10" ProcessName="msedge" />
                   </Sequence>
                   <ui:LogMessage DisplayName="Log End" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Ending Workflow - Main&quot;]">
                     <sap:WorkflowViewStateService.ViewState>
@@ -462,24 +464,12 @@
                         </Assign>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Get Emails" DisplayName="Get Email " sap:VirtualizedContainerService.HintSize="334,143" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Get email(s).xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strInProgressFolder">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;Email In Progress Folder&quot;)" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strInbox">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;Email Inbox Folder&quot;)" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strEmailAccount">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dictConfig(&quot;Email Account&quot;)" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentDirectory">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="strAttachmentDirectory" />
-                            </InArgument>
-                            <OutArgument x:TypeArguments="snm:MailMessage" x:Key="OUT_mailCurrentEmail">
-                              <mva:VisualBasicReference x:TypeArguments="snm:MailMessage" ExpressionText="mailCurrentEmail" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="OUT_ienImageAttachments">
-                              <mva:VisualBasicReference x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="ienImageAttachments" />
-                            </OutArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strInProgressFolder">[dictConfig("Email In Progress Folder")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strInbox">[dictConfig("Email Inbox Folder")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strEmailAccount">[dictConfig("Email Account")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strAttachmentDirectory">[strAttachmentDirectory]</InArgument>
+                            <OutArgument x:TypeArguments="snm:MailMessage" x:Key="OUT_mailCurrentEmail">[mailCurrentEmail]</OutArgument>
+                            <OutArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="OUT_ienImageAttachments">[ienImageAttachments]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -674,7 +664,7 @@
                     <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="exeSystemException is Nothing and exeBusinessException is Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_2" />
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID3" DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="747,3891" sap2010:WorkflowViewState.IdRef="State_12">
+                    <State x:Name="__ReferenceID3" DisplayName="Process Case" sap:VirtualizedContainerService.HintSize="145,83" sap2010:WorkflowViewState.IdRef="State_12">
                       <State.Entry>
                         <TryCatch DisplayName="Try Process Case" sap:VirtualizedContainerService.HintSize="701,3477" sap2010:WorkflowViewState.IdRef="TryCatch_3">
                           <sap:WorkflowViewStateService.ViewState>
@@ -769,6 +759,9 @@
                                   </OutArgument>
                                   <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="IN_ienImageAttachments">
                                     <mva:VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="ienImageAttachments" />
+                                  </InArgument>
+                                  <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credDIGDAT">
+                                    <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="credDIGDAT" />
                                   </InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                                 <sap:WorkflowViewStateService.ViewState>
@@ -1566,6 +1559,7 @@
       <Variable x:TypeArguments="sn:NetworkCredential" Name="credBT" />
       <Variable x:TypeArguments="sn:NetworkCredential" Name="credLSBUD" />
       <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="ienImageAttachments" />
+      <Variable x:TypeArguments="sn:NetworkCredential" Name="credDIGDAT" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>

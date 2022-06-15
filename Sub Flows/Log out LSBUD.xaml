@@ -2,7 +2,7 @@
   <x:Members>
     <x:Property Name="IN_dictConfig" Type="InArgument(scg:Dictionary(x:String, ui:GenericValue))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>2583,1191</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>944,1189</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="20">
@@ -86,7 +86,7 @@
                   </ui:CursorPosition>
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ad51f68c-ea89-45bd-9c66-b939f262b999" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='*Log Out' parentid='HeadContainer' tag='DIV' class='menuIcn Logout' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ad51f68c-ea89-45bd-9c66-b939f262b999" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='HeadContainer' tag='DIV' class='menuIcn Logout' /&gt;" TimeoutMS="1000" WaitForReady="COMPLETE" />
                 </ui:Click.Target>
               </ui:Click>
             </ActivityAction>
@@ -95,7 +95,7 @@
             <ActivityFunc x:TypeArguments="x:Boolean">
               <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists - LOG In button" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_9">
                 <ui:UiElementExists.Target>
-                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec55ce1a-62de-40eb-a30d-361ccf2f7357" InformativeScreenshot="37eca85c3fcb0b09f2a787d008eb2b0b" Selector="&lt;webctrl aaname='Log in' tag='SPAN' /&gt;">
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec55ce1a-62de-40eb-a30d-361ccf2f7357" InformativeScreenshot="37eca85c3fcb0b09f2a787d008eb2b0b" Selector="&lt;html app='msedge.exe' idx='2' /&gt;&lt;webctrl aaname='Log*in' idx='2' /&gt;">
                     <ui:Target.TimeoutMS>
                       <InArgument x:TypeArguments="x:Int32" />
                     </ui:Target.TimeoutMS>

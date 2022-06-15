@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="InputInformationLSBUD" this:InputInformationLSBUD.IN_strEnquiryType="Planned Works" this:InputInformationLSBUD.IN_strWorkCategory="Watercourses/Canals/Drainage" this:InputInformationLSBUD.IN_strWorkType="Dredging" this:InputInformationLSBUD.IN_strPaperSize="A3" this:InputInformationLSBUD.IN_strAuthorityName="The Environment Agency" this:InputInformationLSBUD.IN_strOnBehalfOf="Utility" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:stt="clr-namespace:System.Threading.Tasks;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uca="clr-namespace:UiPath.Callout.Activity;assembly=UiPath.Callout.Activity" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="InputInformationBT" this:InputInformationBT.IN_strEnquiryType="Planned Works" this:InputInformationBT.IN_strWorkCategory="Watercourses/Canals/Drainage" this:InputInformationBT.IN_strWorkType="Dredging" this:InputInformationBT.IN_strPaperSize="A3" this:InputInformationBT.IN_strAuthorityName="The Environment Agency" this:InputInformationBT.IN_strOnBehalfOf="Utility" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:stt="clr-namespace:System.Threading.Tasks;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uca="clr-namespace:UiPath.Callout.Activity;assembly=UiPath.Callout.Activity" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="IN_strLocationType" Type="InArgument(x:String)" />
     <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
@@ -15,12 +15,12 @@
     <x:Property sap2010:Annotation.AnnotationText="in format dd/MM/yyyy" Name="IN_strJobEndDate" Type="InArgument(x:String)" />
     <x:Property Name="IN_strOnBehalfOf" Type="InArgument(x:String)" />
   </x:Members>
-  <this:InputInformationLSBUD.IN_strSiteContactTel>
+  <this:InputInformationBT.IN_strSiteContactTel>
     <InArgument x:TypeArguments="x:String">
       <Literal x:TypeArguments="x:String" Value="" />
     </InArgument>
-  </this:InputInformationLSBUD.IN_strSiteContactTel>
-  <sap:VirtualizedContainerService.HintSize>802,5926</sap:VirtualizedContainerService.HintSize>
+  </this:InputInformationBT.IN_strSiteContactTel>
+  <sap:VirtualizedContainerService.HintSize>958,6720</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="38">
@@ -76,7 +76,7 @@
       <AssemblyReference>System.Windows.Forms</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="604,5861" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="604,6655" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -94,7 +94,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="b864b00fe3e9b55be3d1dc0e450c57b5" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='   New Enquiry ' parentid='WorkBenchPanel' tag='DIV' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="b864b00fe3e9b55be3d1dc0e450c57b5" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='WorkBenchPanel' tag='DIV' class='BenchTool NewEnquiry Orange' parentclass='WorkBench' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -127,7 +127,7 @@
           </scg:List>
         </ui:SelectItem.Items>
         <ui:SelectItem.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="57224abc9cc2e9f8ae77e7f16144f560" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Purpose' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="57224abc9cc2e9f8ae77e7f16144f560" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Purpose' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -152,7 +152,7 @@
           </scg:List>
         </ui:SelectItem.Items>
         <ui:SelectItem.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="1922f6a3b2f3a30c74ed57417feb3a60" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Category' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="1922f6a3b2f3a30c74ed57417feb3a60" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Category' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -176,7 +176,7 @@
           </Assign>
         </If.Then>
       </If>
-      <ui:InterruptibleDoWhile Condition="[strSelectedOption.Trim = &quot;--&quot;]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="520,679" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+      <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="520,679" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
         <ui:InterruptibleDoWhile.Body>
           <Sequence DisplayName="Show callout and validate response is given" sap:VirtualizedContainerService.HintSize="376,514" sap2010:WorkflowViewState.IdRef="Sequence_18">
             <sap:WorkflowViewStateService.ViewState>
@@ -214,7 +214,7 @@
                 </ActivityFunc>
               </ui:CalloutScope.CalloutForm>
               <ui:CalloutScope.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4d577e1-353b-4921-8c9f-55655aa49334" InformativeScreenshot="222292273f43a3606293b0566641304b" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Activity' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4d577e1-353b-4921-8c9f-55655aa49334" InformativeScreenshot="222292273f43a3606293b0566641304b" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Activity' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -223,7 +223,7 @@
             </ui:CalloutScope>
             <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetVisibleText_3">
               <ui:GetVisibleText.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="89632168-135a-4507-9e2e-29d48846b4bf" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Activity' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="89632168-135a-4507-9e2e-29d48846b4bf" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.Activity' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -235,6 +235,9 @@
             </ui:GetVisibleText>
           </Sequence>
         </ui:InterruptibleDoWhile.Body>
+        <ui:InterruptibleDoWhile.Condition>
+          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="strSelectedOption.Trim = &quot;--&quot;" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+        </ui:InterruptibleDoWhile.Condition>
       </ui:InterruptibleDoWhile>
       <TryCatch DisplayName="Try Set Start Date" sap:VirtualizedContainerService.HintSize="520,704" sap2010:WorkflowViewState.IdRef="TryCatch_1">
         <TryCatch.Variables>
@@ -257,16 +260,16 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Start Date" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_16" Text="[IN_strJobStartDate &amp; &quot;[k(tab)]&quot;]">
                     <ui:TypeInto.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6341232a-13c3-4db8-9b44-912c46910ba3" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6341232a-13c3-4db8-9b44-912c46910ba3" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
-                    <ui:GetVisibleText.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="694618e8-0fc3-4658-aa01-d68f0a44d9aa" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;">
+                  <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetFullText_2">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="52607117-9cc5-46cb-91a1-89bcf513618c" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CommencesOn' tag='INPUT' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -274,11 +277,11 @@
                           <InArgument x:TypeArguments="ui:WaitForReady" />
                         </ui:Target.WaitForReady>
                       </ui:Target>
-                    </ui:GetVisibleText.Target>
-                    <ui:GetVisibleText.Text>
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
                       <OutArgument x:TypeArguments="x:String">[strScrape]</OutArgument>
-                    </ui:GetVisibleText.Text>
-                  </ui:GetVisibleText>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
                 </Sequence>
               </ActivityAction>
             </ui:RetryScope.ActivityBody>
@@ -327,25 +330,28 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type End Date" EmptyField="True" sap:VirtualizedContainerService.HintSize="334,96" sap2010:WorkflowViewState.IdRef="TypeInto_17" Text="[IN_strJobEndDate &amp; &quot;[k(tab)]&quot;]">
                     <ui:TypeInto.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6341232a-13c3-4db8-9b44-912c46910ba3" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6341232a-13c3-4db8-9b44-912c46910ba3" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:GetVisibleText FormattedText="{x:Null}" WordsInfo="{x:Null}" DisplayName="Get Visible Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetVisibleText_2">
-                    <ui:GetVisibleText.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="694618e8-0fc3-4658-aa01-d68f0a44d9aa" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;" WaitForReady="COMPLETE">
+                  <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="GetFullText_3">
+                    <ui:GetFullText.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="52607117-9cc5-46cb-91a1-89bcf513618c" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.CompletesOn' tag='INPUT' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
+                        <ui:Target.WaitForReady>
+                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                        </ui:Target.WaitForReady>
                       </ui:Target>
-                    </ui:GetVisibleText.Target>
-                    <ui:GetVisibleText.Text>
+                    </ui:GetFullText.Target>
+                    <ui:GetFullText.Text>
                       <OutArgument x:TypeArguments="x:String">[strScrape]</OutArgument>
-                    </ui:GetVisibleText.Text>
-                  </ui:GetVisibleText>
+                    </ui:GetFullText.Text>
+                  </ui:GetFullText>
                 </Sequence>
               </ActivityAction>
             </ui:RetryScope.ActivityBody>
@@ -375,7 +381,7 @@
       </TryCatch>
       <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Scheme / Reference" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_5" Text="[IN_strScheme]">
         <ui:SetValue.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="25f5dbbbbf0011bcfdce1a59936ac149" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.UserReference' tag='INPUT' /&gt;">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="25f5dbbbbf0011bcfdce1a59936ac149" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.UserReference' tag='INPUT' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -394,7 +400,7 @@
           </scg:List>
         </ui:SelectItem.Items>
         <ui:SelectItem.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="0a1947d5f6df348a0ff62660b54f4c1c" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PlanPaperSize' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="0a1947d5f6df348a0ff62660b54f4c1c" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PlanPaperSize' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -403,7 +409,7 @@
       </ui:SelectItem>
       <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Available Scales" sap:VirtualizedContainerService.HintSize="520,106" sap2010:WorkflowViewState.IdRef="GetFullText_1">
         <ui:GetFullText.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64cc3244-84d0-48a9-9528-9fea5ac1de7b" InformativeScreenshot="8f6cc9601e86da1b8130af62c4e081d5" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PaperPlanScale' tag='SELECT' /&gt;">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="64cc3244-84d0-48a9-9528-9fea5ac1de7b" InformativeScreenshot="8f6cc9601e86da1b8130af62c4e081d5" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PaperPlanScale' tag='SELECT' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -475,7 +481,7 @@
           </scg:List>
         </ui:SelectItem.Items>
         <ui:SelectItem.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="2e936f30646bc5653316160796773218" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PaperPlanScale' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="2e936f30646bc5653316160796773218" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PaperPlanScale' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -494,7 +500,7 @@
           </scg:List>
         </ui:SelectItem.Items>
         <ui:SelectItem.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="79a7ae8f8ff48ff494d0af0f641d08bf" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.WorkingOnBehalfOf' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="79a7ae8f8ff48ff494d0af0f641d08bf" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.WorkingOnBehalfOf' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -562,7 +568,7 @@
           </scg:List>
         </ui:SelectItem.Items>
         <ui:SelectItem.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="7cadb6badb8a90448232315540a91729" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.WorkingOnBehalfOfAuthority' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="474ea1d7-a0cf-4d8d-9448-d5abc7980a86" InformativeScreenshot="7cadb6badb8a90448232315540a91729" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.WorkingOnBehalfOfAuthority' tag='SELECT' /&gt;" WaitForReady="COMPLETE">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -576,7 +582,7 @@
       </ui:SelectItem>
       <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Contact Name" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_3" Text="[IN_strSiteContactName]">
         <ui:SetValue.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="602b12f56813341a37984f16957e5f25" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PrincipalContactName' tag='INPUT' /&gt;">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="602b12f56813341a37984f16957e5f25" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PrincipalContactName' tag='INPUT' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -588,7 +594,7 @@
       </ui:SetValue>
       <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Contact Tel" sap:VirtualizedContainerService.HintSize="520,134" sap2010:WorkflowViewState.IdRef="SetValue_4" Text="[IN_strSiteContactTel]">
         <ui:SetValue.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="9ab5e48c88976f1842c1936481db0dc6" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PrincipalContactMobile' tag='INPUT' /&gt;">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a61688df-0d2a-4f74-9ebb-cb6bc8c68448" InformativeScreenshot="9ab5e48c88976f1842c1936481db0dc6" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='NewEnquiry.PrincipalContactMobile' tag='INPUT' /&gt;">
             <ui:Target.TimeoutMS>
               <InArgument x:TypeArguments="x:Int32" />
             </ui:Target.TimeoutMS>
@@ -611,7 +617,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="34e01ef42c370eed19386900bf8c7fec" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='EnquiryDetailsPanel' tag='BUTTON' aaname='&amp;gt;Next' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="34e01ef42c370eed19386900bf8c7fec" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl parentid='EnquiryDetailsPanel' tag='BUTTON' aaname='&amp;gt;Next' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -621,7 +627,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="562,182" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="562,976" sap2010:WorkflowViewState.IdRef="Switch`1_2">
       <Sequence x:Key="Grid Reference" DisplayName="Grid Reference" sap:VirtualizedContainerService.HintSize="401,574" sap2010:WorkflowViewState.IdRef="Sequence_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -637,7 +643,7 @@
             </scg:List>
           </ui:SelectItem.Items>
           <ui:SelectItem.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -656,7 +662,7 @@
             </scg:List>
           </ui:SelectItem.Items>
           <ui:SelectItem.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="3d9dca2c4421c627848b0e7f387192c1" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SubSearchType' tag='SELECT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="3d9dca2c4421c627848b0e7f387192c1" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SubSearchType' tag='SELECT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -668,7 +674,7 @@
         </ui:SelectItem>
         <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type In Grid Reference" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_13" SimulateType="True" Text="[IN_strLocationToSearch]">
           <ui:TypeInto.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06055256-7af4-44ed-94d7-c20a62eef1da" InformativeScreenshot="cfe2960dd5ef3d3f8174e5ceb1d6dc53" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.MapReference' tag='INPUT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="06055256-7af4-44ed-94d7-c20a62eef1da" InformativeScreenshot="cfe2960dd5ef3d3f8174e5ceb1d6dc53" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.MapReference' tag='INPUT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -694,7 +700,7 @@
             </scg:List>
           </ui:SelectItem.Items>
           <ui:SelectItem.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -706,7 +712,7 @@
         </ui:SelectItem>
         <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Postcode" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_9" SimulateType="True" Text="[IN_strLocationToSearch]">
           <ui:TypeInto.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e27e82ac-931a-4bf3-8dba-ab37562805a0" InformativeScreenshot="e35da4dc333f6a9ba8902f67116ad8b8" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.Postcode' tag='INPUT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e27e82ac-931a-4bf3-8dba-ab37562805a0" InformativeScreenshot="e35da4dc333f6a9ba8902f67116ad8b8" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.Postcode' tag='INPUT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -732,7 +738,7 @@
             </scg:List>
           </ui:SelectItem.Items>
           <ui:SelectItem.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="4036f37ad2d9c17dc8f09178e0f6429e" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SearchType' tag='SELECT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -751,7 +757,7 @@
             </scg:List>
           </ui:SelectItem.Items>
           <ui:SelectItem.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="3d9dca2c4421c627848b0e7f387192c1" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SubSearchType' tag='SELECT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dd7eeaf3-d0e0-4152-86ee-2497098b6a28" InformativeScreenshot="3d9dca2c4421c627848b0e7f387192c1" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='SearchAddress.SubSearchType' tag='SELECT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -763,7 +769,7 @@
         </ui:SelectItem>
         <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Easting" EmptyField="True" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_10" SimulateType="True" Text="[IN_strLocationToSearch.Split(&quot;,&quot;c)(0).Trim]">
           <ui:TypeInto.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="df4c084c-90f2-4574-9fa4-f1f2c16eff74" InformativeScreenshot="7904f0971060a6387ca2920721738ecf" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='Coordinates.East' tag='INPUT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="df4c084c-90f2-4574-9fa4-f1f2c16eff74" InformativeScreenshot="7904f0971060a6387ca2920721738ecf" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='Coordinates.East' tag='INPUT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -775,7 +781,7 @@
         </ui:TypeInto>
         <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type in Northing" EmptyField="True" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_11" SimulateType="True" Text="[IN_strLocationToSearch.Split(&quot;,&quot;c)(1).Trim]">
           <ui:TypeInto.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="062bf5d3-fa24-468d-a543-d4f67f668398" InformativeScreenshot="4ab67f10e053632b5e244353e14c2efa" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='Coordinates.North' tag='INPUT' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="062bf5d3-fa24-468d-a543-d4f67f668398" InformativeScreenshot="4ab67f10e053632b5e244353e14c2efa" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl id='Coordinates.North' tag='INPUT' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -799,7 +805,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="bfdae63ff9ba66356710c22d540a7857" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='Search' parentid='EnquiryLocationPanel' tag='BUTTON' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="bfdae63ff9ba66356710c22d540a7857" Selector="&lt;html app='msedge.exe' title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='Search' parentid='EnquiryLocationPanel' tag='BUTTON' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>

@@ -8,11 +8,12 @@
     <x:Property Name="IN_credLSBUD" Type="InArgument(sn:NetworkCredential)" />
     <x:Property Name="OUT_strHTMLBody" Type="OutArgument(x:String)" />
     <x:Property Name="IN_ienImageAttachments" Type="InArgument(scg:IEnumerable(x:String))" />
+    <x:Property Name="IN_credDIGDAT" Type="InArgument(sn:NetworkCredential)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>2510,3385</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>876,3385</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -226,6 +227,9 @@
                     </InOutArgument>
                     <InArgument x:TypeArguments="scg:IEnumerable(x:String)" x:Key="IN_ienImageAttachments">
                       <mva:VisualBasicValue x:TypeArguments="scg:IEnumerable(x:String)" ExpressionText="IN_ienImageAttachments" />
+                    </InArgument>
+                    <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credDIGDAT">
+                      <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="IN_credDIGDAT" />
                     </InArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
