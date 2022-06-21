@@ -13,7 +13,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>876,3385</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1065,3385</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Process_Case_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
@@ -96,6 +96,7 @@
       <Variable x:TypeArguments="njl:JObject" Name="jobNonMemberTableLSBUD" />
       <Variable x:TypeArguments="njl:JObject" Name="jobSearchReportTable" />
       <Variable x:TypeArguments="x:Boolean" Name="booEmailSent" />
+      <Variable x:TypeArguments="x:Boolean" Name="booDIGDATSearched" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -231,6 +232,9 @@
                     <InArgument x:TypeArguments="sn:NetworkCredential" x:Key="IN_credDIGDAT">
                       <mva:VisualBasicValue x:TypeArguments="sn:NetworkCredential" ExpressionText="IN_credDIGDAT" />
                     </InArgument>
+                    <InOutArgument x:TypeArguments="x:Boolean" x:Key="IO_DIGDATSearched">
+                      <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="booDIGDATSearched" />
+                    </InOutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">

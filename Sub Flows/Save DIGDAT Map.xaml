@@ -5,7 +5,7 @@
     <x:Property Name="IN_strPaperSize" Type="InArgument(x:String)" />
     <x:Property Name="IN_strDescription" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>876,2715</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1065,2969</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -33,7 +33,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="22">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="23">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
@@ -56,14 +56,16 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Save print of area" sap:VirtualizedContainerService.HintSize="518,2650" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Save print of area" sap:VirtualizedContainerService.HintSize="518,2904" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="booTempFolderExists" />
       <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="ienEleDatasets" />
       <Variable x:TypeArguments="ui:UiElement" Name="elePrint" />
       <Variable x:TypeArguments="x:String" Name="booDocumentReady" />
+      <Variable x:TypeArguments="x:String" Name="strAutoGenName" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -72,7 +74,7 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:WaitUiElementAppear DisplayName="Find Element 'Print'" FoundElement="[elePrint]" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_1" WaitActive="False" WaitVisible="False">
       <ui:WaitUiElementAppear.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="04da17e2-f23e-42fd-a639-5e99224364cc" InformativeScreenshot="48c3c0c69a03c79c92c7b71a79b268ab" Selector="&lt;html app='msedge.exe' title='Map' /&gt;&lt;webctrl idx='1' parentid='mapctrl_sidebar_options_frame' tag='SPAN' /&gt;" TimeoutMS="3000" WaitForReady="COMPLETE" />
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="04da17e2-f23e-42fd-a639-5e99224364cc" InformativeScreenshot="7d8c2a7d55044d3776699474b6507ca1" Selector="&lt;html app='msedge.exe' title='Map' /&gt;&lt;webctrl aaname='Print' parentid='mapctrl_sidebar_options_frame' tag='SPAN' /&gt;" TimeoutMS="30000" WaitForReady="COMPLETE" />
       </ui:WaitUiElementAppear.Target>
     </ui:WaitUiElementAppear>
     <Sequence DisplayName="Get and save print" sap:VirtualizedContainerService.HintSize="476,2092" sap2010:WorkflowViewState.IdRef="Sequence_5">
@@ -212,9 +214,7 @@
       </Assign>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke WaitForDIGDAT workflow" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="WaitForDIGDAT.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="s:DateTime" x:Key="dateTimer">
-            <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="dateTimer" />
-          </InArgument>
+          <InArgument x:TypeArguments="s:DateTime" x:Key="dateTimer">[dateTimer]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
       <ui:WaitUiElementAppear WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="Find PDF results" FoundElement="[elePDF]" sap:VirtualizedContainerService.HintSize="434,106" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2">
@@ -253,7 +253,19 @@
         </ui:ElementScope.Target>
       </ui:ElementScope>
     </Sequence>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'ComboBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="476,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="False" Text="[IN_strSavePath]">
+    <ui:GetFullText IgnoreHidden="{x:Null}" DisplayName="Get Full Text" sap:VirtualizedContainerService.HintSize="476,68" sap2010:WorkflowViewState.IdRef="GetFullText_1">
+      <ui:GetFullText.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d0be0bbd-1c32-41a7-9937-f3da530f729c" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
+      </ui:GetFullText.Target>
+      <ui:GetFullText.Text>
+        <OutArgument x:TypeArguments="x:String">[strAutoGenName]</OutArgument>
+      </ui:GetFullText.Text>
+    </ui:GetFullText>
+    <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'ComboBox'" EmptyField="True" sap:VirtualizedContainerService.HintSize="476,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="False" Text="[IN_strSavePath &amp; strAutoGenName.Trim]">
       <ui:TypeInto.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec1fe814-0321-470f-8c4b-9ee54d11b269" InformativeScreenshot="da40004f2564b49f4594a024c4ef764b" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>
@@ -275,6 +287,25 @@
       </ui:Click.CursorPosition>
       <ui:Click.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="48ea0981-b3e4-4b27-86e9-94bda53f7513" InformativeScreenshot="0408a3b2b99f5301e2450e576e368e9d" Selector="&lt;wnd app='msedge.exe' cls='#32770' title='Save As' /&gt;&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
+      </ui:Click.Target>
+    </ui:Click>
+    <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Maps" sap:VirtualizedContainerService.HintSize="476,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+      <ui:Click.CursorPosition>
+        <ui:CursorPosition Position="Center">
+          <ui:CursorPosition.OffsetX>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetX>
+          <ui:CursorPosition.OffsetY>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:CursorPosition.OffsetY>
+        </ui:CursorPosition>
+      </ui:Click.CursorPosition>
+      <ui:Click.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="48ea0981-b3e4-4b27-86e9-94bda53f7513" InformativeScreenshot="6d42a68a1ed7dd573220f2e3a2d03f3d" Selector="&lt;html app='msedge.exe' title='Map' /&gt;&lt;webctrl tag='A' aaname='Maps' class='ctl00_Logo1_Menu1_listNav_1 ctl00_Logo1_Menu1_listNav_3 menuActive ctl00_Logo1_Menu1_listNav_5' href='maps.aspx' parentname='aspnetForm' /&gt;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>

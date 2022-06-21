@@ -3,10 +3,10 @@
     <x:Property Name="IN_strLocationType" Type="InArgument(x:String)" />
     <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>890,1189</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>919,1189</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="38">
+    <scg:List x:TypeArguments="x:String" Capacity="21">
       <x:String>System.Activities</x:String>
       <x:String>System.Collections.Generic</x:String>
       <x:String>System</x:String>
@@ -31,7 +31,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
@@ -59,7 +59,10 @@
       <AssemblyReference>System.Windows.Forms</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="539,420" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="539,822" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="booListElement" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -202,15 +205,44 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="bfdae63ff9ba66356710c22d540a7857" Selector="&lt;html title='LinesearchbeforeUdig' /&gt;&lt;webctrl aaname='Search' parentid='EnquiryLocationPanel' tag='BUTTON' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ec23806a-68ce-4735-b503-1f4ca3130ae6" InformativeScreenshot="b636e23351bf0a98997ea709cc314f55" Selector="&lt;html app='msedge.exe' title='Map' /&gt;&lt;webctrl aaname='Search' parentid='sidebar_searchtype_address' tag='SPAN' /&gt;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
+    <ui:UiElementExists DisplayName="Element Exists 'A  #'" Exists="[booListElement]" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dbb9a2da-2ae5-4f82-ad9e-3ecc4588bfff" InformativeScreenshot="52c8651b1a4314ea1c3a78f6ce990e08" Selector="&lt;html app='msedge.exe' title='Map' /&gt;&lt;webctrl parentid='mapctrl_sidebar_response' tag='A' parentclass='listbox' idx='1' /&gt;" WaitForReady="COMPLETE">
+          <ui:Target.TimeoutMS>
+            <InArgument x:TypeArguments="x:Int32" />
+          </ui:Target.TimeoutMS>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[booListElement]" DisplayName="If list exists" sap:VirtualizedContainerService.HintSize="497,216" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="3f6b7b49-e57b-4e55-a2a6-7b5a4896500e" Selector="&lt;html app='msedge.exe' title='Map' /&gt;&lt;webctrl parentid='mapctrl_sidebar_response' tag='A' parentclass='listbox' idx='1' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+      </If.Then>
+    </If>
   </Sequence>
 </Activity>

@@ -7,20 +7,12 @@
 			{
 			"Name" : "Vodafone",
 			"Search" : "Not Supported"
-			},
-   			{
-			"Name" : "DIGDAT",
-			"Search" : "DIGDAT"
 			}]
 	},
 	"Electric" : {
 		"Providers" : [{
 			"Name" : "LSBUD",
 			"Search" : "LSBUD"
-			},
-			{
-			"Name" : "DIGDAT",
-			"Search" : "DIGDAT"
 			}]
 		
 	},
@@ -28,20 +20,12 @@
 		"Providers" : [{
 			"Name" : "Cadent Gas",
 			"Search" : "Not Supported"
-			},
-			{
-			"Name" : "DIGDAT",
-			"Search" : "DIGDAT"
 			}]
 	},
 	"Water" : {
 		"Providers" : [{
-			"Name" : "SE Water",
-			"Search" : "SE"
-			},
-			{
-			"Name" : "DIGDAT",
-			"Search" : "DIGDAT"
+			"Name" : "English Water",
+			"Search" : "Not Supported"
 			}]
 	}
 }
