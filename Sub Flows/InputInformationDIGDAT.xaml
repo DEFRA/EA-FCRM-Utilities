@@ -3,7 +3,7 @@
     <x:Property Name="IN_strLocationType" Type="InArgument(x:String)" />
     <x:Property Name="IN_strLocationToSearch" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>919,1189</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1139,1364</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
@@ -59,7 +59,7 @@
       <AssemblyReference>System.Windows.Forms</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="539,822" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence DisplayName="Input Information" sap:VirtualizedContainerService.HintSize="539,1299" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="booListElement" />
     </Sequence.Variables>
@@ -68,7 +68,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="497,182" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch - Check Location Format" Expression="[IN_strLocationType]" sap:VirtualizedContainerService.HintSize="497,628" sap2010:WorkflowViewState.IdRef="Switch`1_2">
       <Sequence x:Key="Grid Reference" DisplayName="Grid Ref" sap:VirtualizedContainerService.HintSize="401,400" sap2010:WorkflowViewState.IdRef="Sequence_20">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -212,7 +212,7 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:UiElementExists DisplayName="Element Exists 'A  #'" Exists="[booListElement]" sap:VirtualizedContainerService.HintSize="497,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+    <ui:UiElementExists sap2010:Annotation.AnnotationText="Double check with SME if this is ever not suitable" DisplayName="Element Exists 'A  #'" Exists="[booListElement]" sap:VirtualizedContainerService.HintSize="497,137" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="dbb9a2da-2ae5-4f82-ad9e-3ecc4588bfff" InformativeScreenshot="52c8651b1a4314ea1c3a78f6ce990e08" Selector="&lt;html app='msedge.exe' title='Map' /&gt;&lt;webctrl parentid='mapctrl_sidebar_response' tag='A' parentclass='listbox' idx='1' /&gt;" WaitForReady="COMPLETE">
           <ui:Target.TimeoutMS>
@@ -220,6 +220,11 @@
           </ui:Target.TimeoutMS>
         </ui:Target>
       </ui:UiElementExists.Target>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:UiElementExists>
     <If Condition="[booListElement]" DisplayName="If list exists" sap:VirtualizedContainerService.HintSize="497,216" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>

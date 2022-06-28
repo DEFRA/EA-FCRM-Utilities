@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1095,2011</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1139,2011</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Breakpoint_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -119,12 +119,8 @@
         </ActivityAction>
       </ufa:FormActivity.DelayBody>
       <ufa:FormActivity.FormFieldsCollection>
-        <InArgument x:TypeArguments="x:String" x:Key="formBody">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_strFormBody" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="selectNextLocation_dropdown">
-          <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="listStrNumberedLocations" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="formBody">[IN_strFormBody]</InArgument>
+        <InArgument x:TypeArguments="scg:List(x:String)" x:Key="selectNextLocation_dropdown">[listStrNumberedLocations]</InArgument>
       </ufa:FormActivity.FormFieldsCollection>
     </ufa:FormActivity>
     <If Condition="[strSelectedOption = &quot;finish&quot;]" DisplayName="If Finish selected" sap:VirtualizedContainerService.HintSize="1063,1239" sap2010:WorkflowViewState.IdRef="If_5">

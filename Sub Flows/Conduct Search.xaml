@@ -17,7 +17,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1331,1189</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1331,831</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Conduct_Search_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -105,11 +105,11 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">380,226.04</av:Point>
-              <av:Size x:Key="ShapeSize">200,68</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">480,294.04 480,446.5 615.25,446.5 615.25,476.5</av:PointCollection>
+              <av:Size x:Key="ShapeSize">200,66</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">480,292.04 480,446.5 615.5,446.5 615.5,476.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Search BT" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Search BT" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="booBTOpen" />
             </Sequence.Variables>
@@ -272,11 +272,11 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">540,327</av:Point>
-            <av:Size x:Key="ShapeSize">200,68</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">640,395 640,425 639.5,425 639.5,476.5</av:PointCollection>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">640,393 640,476.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Not Supported" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Not Supported" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -343,12 +343,12 @@
           </ui:ForEach>
         </Sequence>
         <FlowStep.Next>
-          <FlowDecision x:Name="__ReferenceID0" Condition="[strReferenceNumber &lt;&gt; &quot;Not yet supported&quot; AND strReferenceNumber &lt;&gt; &quot;No return required&quot;]" DisplayName="Search successful" sap:VirtualizedContainerService.HintSize="97,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+          <FlowDecision x:Name="__ReferenceID0" Condition="[strReferenceNumber &lt;&gt; &quot;Not yet supported&quot; AND strReferenceNumber &lt;&gt; &quot;No return required&quot;]" DisplayName="Search successful" sap:VirtualizedContainerService.HintSize="98,87" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <av:Point x:Key="ShapeLocation">591,476.5</av:Point>
-                <av:Size x:Key="ShapeSize">97,87</av:Size>
+                <av:Size x:Key="ShapeSize">98,87</av:Size>
                 <av:PointCollection x:Key="TrueConnector">591,520 470,520 470,579</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -379,11 +379,11 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">700,227</av:Point>
-            <av:Size x:Key="ShapeSize">200,68</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">800,295 800,446.5 663.75,446.5 663.75,476.5</av:PointCollection>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">800,293 800,446.5 664.5,446.5 664.5,476.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_29">
+        <Sequence DisplayName="Search LSBUD" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_29">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="booLSBUDopen" />
             <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
@@ -750,11 +750,11 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">920,227</av:Point>
-            <av:Size x:Key="ShapeSize">200,68</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">1020,295 1020,446.5 663.75,446.5 663.75,476.5</av:PointCollection>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">1020,293 1020,446.5 664.5,446.5 664.5,476.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Search DIGDAT" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_23">
+        <Sequence DisplayName="Search DIGDAT" sap:VirtualizedContainerService.HintSize="641,2016" sap2010:WorkflowViewState.IdRef="Sequence_23">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="booDIGDATOpen" />
             <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
@@ -802,13 +802,13 @@
               </InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="599,1230" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="599,1272" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="location" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Search and get map" sap:VirtualizedContainerService.HintSize="563,1096" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence DisplayName="Search and get map" sap:VirtualizedContainerService.HintSize="563,1138" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="dtaTable" />
                   </Sequence.Variables>
@@ -825,9 +825,9 @@
                       <InArgument x:TypeArguments="njl:JToken">[new JObject]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If Condition="[IO_DIGDATSearched]" DisplayName="If DIGDAT Searched" sap:VirtualizedContainerService.HintSize="521,604" sap2010:WorkflowViewState.IdRef="If_22">
+                  <If Condition="[IO_DIGDATSearched]" DisplayName="If DIGDAT Searched" sap:VirtualizedContainerService.HintSize="521,646" sap2010:WorkflowViewState.IdRef="If_22">
                     <If.Else>
-                      <Sequence DisplayName="Search DIGDAT" sap:VirtualizedContainerService.HintSize="376,456" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                      <Sequence DisplayName="Search DIGDAT" sap:VirtualizedContainerService.HintSize="376,498" sap2010:WorkflowViewState.IdRef="Sequence_30">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -835,37 +835,30 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InputInformationDIGDAT workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" LogEntry="No" LogExit="No" UnSafe="True" WorkflowFileName="Sub Flows\InputInformationDIGDAT.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationType">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictProFormaData(&quot;Location Format&quot;)" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationToSearch">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="location" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationType">[IN_dictProFormaData("Location Format")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strLocationToSearch">[location]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Save Attachment DIGDAT" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Sub Flows\Save DIGDAT Map.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSavePath">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictConfig(&quot;Attachment Path&quot;)" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPrintTitle">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictProFormaData(&quot;Scheme Name&quot;)" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPaperSize">
-                              <Literal x:TypeArguments="x:String" xml:space="preserve">a3 </Literal>
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="IN_strDescription">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="IN_dictProFormaData(&quot;Description&quot;)" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strSavePath">[IN_dictConfig("Attachment Path")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPrintTitle">[IN_dictProFormaData("Scheme Name")]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strPaperSize" xml:space="preserve">a3 </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="IN_strDescription">[IN_dictProFormaData("Description")]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <Assign DisplayName="Set DIGDAT Searched" sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_95">
+                        <Assign sap2010:Annotation.AnnotationText="Scope for this may change based on user feedback" DisplayName="Set DIGDAT Searched" sap:VirtualizedContainerService.HintSize="334,102" sap2010:WorkflowViewState.IdRef="Assign_95">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Boolean">[IO_DIGDATSearched]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
                             <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                           </Assign.Value>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </Assign>
                       </Sequence>
                     </If.Else>
@@ -907,11 +900,11 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">160,227</av:Point>
-            <av:Size x:Key="ShapeSize">200,68</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">260,295 260,446.5 615.25,446.5 615.25,476.5</av:PointCollection>
+            <av:Size x:Key="ShapeSize">200,66</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">260,293 260,446.5 615.5,446.5 615.5,476.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Email SE" sap:VirtualizedContainerService.HintSize="563,1645" sap2010:WorkflowViewState.IdRef="Sequence_24">
+        <Sequence DisplayName="Email SE" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_24">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="booDIGDATOpen" />
             <Variable x:TypeArguments="sd:DataTable" Name="dataLSBUDMembersTable" />
@@ -926,12 +919,12 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[IN_dictConfig(&quot;SE Addressee&quot;)]" DisplayName="Get Email Addressee" sap:VirtualizedContainerService.HintSize="521,139" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
+          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[IN_dictConfig(&quot;SE Addressee&quot;)]" DisplayName="Get Email Addressee" sap:VirtualizedContainerService.HintSize="521,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1">
             <ui:GetRobotAsset.Value>
               <OutArgument x:TypeArguments="x:String">[strAddressee]</OutArgument>
             </ui:GetRobotAsset.Value>
           </ui:GetRobotAsset>
-          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[IN_dictConfig(&quot;SE Subject&quot;)]" DisplayName="Get Email Subject" sap:VirtualizedContainerService.HintSize="521,139" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[IN_dictConfig(&quot;SE Subject&quot;)]" DisplayName="Get Email Subject" sap:VirtualizedContainerService.HintSize="521,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
             <ui:GetRobotAsset.Value>
               <OutArgument x:TypeArguments="x:String">[strSubject]</OutArgument>
             </ui:GetRobotAsset.Value>
@@ -942,7 +935,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:GetRobotAsset>
-          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[IN_dictConfig(&quot;SE Body&quot;)]" DisplayName="Get Email Body" sap:VirtualizedContainerService.HintSize="521,139" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
+          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[IN_dictConfig(&quot;SE Body&quot;)]" DisplayName="Get Email Body" sap:VirtualizedContainerService.HintSize="521,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_3">
             <ui:GetRobotAsset.Value>
               <OutArgument x:TypeArguments="x:String">[strBody]</OutArgument>
             </ui:GetRobotAsset.Value>
@@ -961,7 +954,7 @@
               <InArgument x:TypeArguments="x:String">[now.ToString("yyyyMMddHHmmssfff")]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="521,387" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each Location" sap:VirtualizedContainerService.HintSize="521,386" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[IN_dictProFormaData(&quot;Locations&quot;).ToString.Split(&quot;;&quot;c)]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
@@ -993,15 +986,15 @@
               </ActivityAction>
             </ui:ForEach.Body>
           </ui:ForEach>
-          <If Condition="[IO_booSEEmailSent]" DisplayName="If EMail Sent" sap:VirtualizedContainerService.HintSize="521,489" sap2010:WorkflowViewState.IdRef="If_23">
+          <If Condition="[IO_booSEEmailSent]" DisplayName="If EMail Sent" sap:VirtualizedContainerService.HintSize="521,485" sap2010:WorkflowViewState.IdRef="If_23">
             <If.Else>
-              <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="376,339" sap2010:WorkflowViewState.IdRef="Sequence_32">
+              <Sequence DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="376,337" sap2010:WorkflowViewState.IdRef="Sequence_32">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[IN_ienImageAttachments]" Body="[strBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,147" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[strSubject &amp; &quot;REFERENCE: &quot; &amp; strReferenceNumber]" To="[strAddressee]">
+                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[IN_ienImageAttachments]" Body="[strBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="False" IsDraft="False" Subject="[strSubject &amp; &quot;REFERENCE: &quot; &amp; strReferenceNumber]" To="[strAddressee]">
                   <ui:SendOutlookMail.Files>
                     <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                   </ui:SendOutlookMail.Files>
